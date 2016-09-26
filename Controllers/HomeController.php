@@ -17,6 +17,8 @@ require(dirname(__FILE__) . '/../Models/Tech.php');
 
 require(dirname(__FILE__) . '/../DAO/DataBase.php');
 require(dirname(__FILE__) . '/../DAO/HomePageDAO.php');
+require(dirname(__FILE__) . '/../DAO/ImmeubleDAO.php');
+require(dirname(__FILE__) . '/../DAO/TechDAO.php');
 
 class HomeController
 {
