@@ -15,7 +15,7 @@ class ImmeubleDAO
 
     function getImmeubleFribourg() {
         $DB = new DataBase();
-        $Immeubles = [];
+        $Immeubles = array();
 
         $query = "SELECT * FROM Immeuble WHERE ImmeubleCity=1";
 
@@ -32,7 +32,7 @@ class ImmeubleDAO
             $Immeuble->setImmeubleLvl($row["ImmeubleLvl"]);
             $Immeuble->setTechId($row["TechId"]);
 
-            $Immeubles->append($Immeuble);
+            array_push($Immeubles, $Immeuble);
 
         }
 

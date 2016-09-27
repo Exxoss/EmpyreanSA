@@ -15,7 +15,7 @@ class TechDAO
 
     function getTech() {
         $DB = new DataBase();
-        $Techs = [];
+        $Techs = array();
 
         $query = "SELECT * FROM Tech";
 
@@ -30,7 +30,7 @@ class TechDAO
             $Tech->setTechAdress($row["TechAdress"]);
             $Tech->setTechPhoneNumber($row["TechPhoneNumber"]);
 
-            $Techs->append($Tech);
+            array_push($Techs, $Tech);
         }
 
         return $Techs;

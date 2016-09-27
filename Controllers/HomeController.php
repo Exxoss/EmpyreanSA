@@ -47,8 +47,14 @@ class HomeController
         $tel = $home->getHomeTel();
         $fax = $home->getHomeFax();
 
+        $ImmeubleDAO= new ImmeubleDAO();
+        $Immeubles = $ImmeubleDAO->getImmeubleFribourg();
+
+        $TechDAO = new TechDAO();
+        $Techs = $TechDAO->getTech();
+
         $view = new FribourgView();
-        $view->display($tel, $fax);
+        $view->display($tel, $fax, $Immeubles, $Techs);
     }
 
     function renderVaud() {

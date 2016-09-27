@@ -11,7 +11,7 @@ class FribourgView
     function __construct(){
 
     }
-    function display($tel, $fax){
+    function display($tel, $fax, $Immeubles, $Techs){
         echo "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -59,100 +59,60 @@ class FribourgView
                 <a href=\"doc/remise de logement.pdf\" download=\"rl\"><li>Remise de logement <i class=\"fa fa-download\"></i></li></a>
             </ul>
         </aside>
-        <div id=\"wrapper\" class=\"content\">
-            <article class=\"details\">
-                <img src=\"img/fribourg2.png\" alt=\"photo\">
-                <h2>Route du Centre 21, 23 à 1723 Marly</h2>
-                <p>description des appartements à louer</p>
-                <h5>Appartements libres : 1</h5>
-                <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-                <div class=\"rt\">
+        <div id=\"wrapper\" class=\"content\">";
+
+        foreach ($Immeubles as $Immeuble) {
+            echo "<article class=\"details\">";
+
+            if ($Immeuble->getImmeublePathImg() != null) {
+                echo "<img src='".$Immeuble->getImmeublePathImg()."' alt='photo'>";
+            } else {
+                echo "<img src='img/nonDispo.jpg' alt='photo'>";
+            }
+            echo "<h2>".$Immeuble->getImmeubleAdress()."</h2>";
+            echo "<p>".$Immeuble->getImmeubleDescription()."</p>";
+            echo "<h5> Appartement libres : ".$Immeuble->getImmeubleFreeSlot()."</h5>";
+
+            //gestion des notations
+            switch ($Immeuble->getImmeubleLvl()){
+                case 0:
+                    echo "<h6><i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 1:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 2:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 3:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 4:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 5:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i></h6>";
+                    break;
+            }
+
+            //gestion Technicien
+
+            echo "</article>";
+
+        }
+
+               /* <div class=\"rt\">
                     <h4>Responsable technique</h4>
                     <ul>
                         <li>Monsieur Julio Simao</li>
                         <li><i class=\"fa fa-home\"></i> &nbsp; Av.de Beauregard 9, 1700 Fribourg</li>
                         <li><i class=\"fa fa-phone\"></i> &nbsp; 079 325 26 83</li>
                     </ul>
-                </div>
-            </article>
+                </div> */
 
-            <article class=\"details\">
-                <img src=\"img/nonDispo.jpg\" alt=\"photo\">
-                <h2>Route du Châtelet 1-3-5 à 1700 Fribourg</h2>
-                <p>description des appartements à louer</p>
-                <h5>Appartements libres : 0</h5>
-                <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-half-o\"></i></h6>
-                <div class=\"rt\">
-                    <h4>Responsable technique</h4>
-                    <ul>
-                        <li>Monsieur Julio Simao</li>
-                        <li><i class=\"fa fa-home\"></i> &nbsp; Av.de Beauregard 9, 1700 Fribourg</li>
-                        <li><i class=\"fa fa-phone\"></i> &nbsp; 079 325 26 83</li>
-                    </ul>
-                </div>
-            </article>
 
-            <article class=\"details\">
-                <img src=\"img/nonDispo.jpg\" alt=\"photo\">
-                <h2>Route de Villars 44 à 1700 Fribourg</h2>
-                <p>description des appartements à louer</p>
-                <h5>Appartements libres : 0</h5>
-                <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-                <div class=\"rt\">
-                    <h4>Responsable technique</h4>
-                    <ul>
-                        <li>Monsieur Julio Simao</li>
-                        <li><i class=\"fa fa-home\"></i> &nbsp; Av.de Beauregard 9, 1700 Fribourg</li>
-                        <li><i class=\"fa fa-phone\"></i> &nbsp; 079 325 26 83</li>
-                    </ul>
-                </div>
-            </article>
 
-            <article class=\"details\">
-                <img src=\"img/nonDispo.jpg\" alt=\"photo\">
-                <h2>Impasse de la Grangette 11, 15 à 1752 Villars-sur-Glâne</h2>
-                <p>description des appartements à louer</p>
-                <h5>Appartements libres : 0</h5>
-                <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-half-o\"></i> <i class=\"fa fa-star-o\"></i></h6>
-                <div class=\"rt\">
-                    <h4>Responsable technique</h4>
-                    <ul>
-                        <li>Monsieur André Rody</li>
-                        <li><i class=\"fa fa-phone\"></i> &nbsp; 079 326 27 54</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class=\"details\">
-                <img src=\"img/nonDispo.jpg\" alt=\"photo\">
-                <h2>Route du Sablion 7 à 1772 Grolley</h2>
-                <p>description des appartements à louer</p>
-                <h5>Appartements libres : 1</h5>
-                <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-                <div class=\"rt\">
-                    <h4>Responsable technique</h4>
-                    <ul>
-                        <li>Jean-Pierre Morel</li>
-                        <li><i class=\"fa fa-phone\"></i> &nbsp; 026 475 39 09</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class=\"details\">
-                <img src=\"img/fribourg1.png\" alt=\"photo\">
-                <h2>Route du Chasseral 1 3 5, 1470 Estavayer-le-Lac</h2>
-                <p>description des appartements à louer</p>
-                <h5>Appartements libres : 0</h5>
-                <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-                <div class=\"rt\">
-                    <h4>Responsable technique</h4>
-                    <ul>
-                        <li>Emilia Pereira Rodrigues</li>
-                        <li><i class=\"fa fa-phone\"></i> &nbsp;  079 505 73 01 ou 026 663 86 03</li>
-                    </ul>
-                </div>
-            </article>
-        </div>
+        echo "</div>
 
     </section>
     <footer>
