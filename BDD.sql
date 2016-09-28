@@ -59,4 +59,16 @@ INSERT INTO `Tech` (`TechId`, `TechName`, `TechAdress`, `TechPhoneNumber`) VALUE
 INSERT INTO `Home` (`HomeId`, `HomeMess`, `HomeInf`, `HomeTel`, `HomeFax`, `HomePwd`) VALUES
 (1, 'Empyrean SA est une agence immobilière spécialisée dans la location d''appartement sur Fribourg et Vaud.', 'En cas d''urgence ou pour toutes demandes administratives particulières veuillez contacter le responsable technique en charge de votre immeuble', '+41 26 413 38 34', '+41 26 413 38 54', '46c29f691732b3d0240629329a2d0fe9');
 
+INSERT INTO `Immeuble` (`ImmeubleId`, `ImmeubleCity`, `ImmeubleAdress`, `ImmeubleDescription`, `ImmeubleFreeSlot`, `ImmeublePathImg`, `ImmeubleLvl`, `TechId`) VALUES
+(1, 1, 'Route du Centre 21, 23 à 1723 Marly', 'description des appartement à louer', 1, 'img/fribourg2.png', 4, 1),
+(2, 1, 'Route du Châtelet 1-3-5 à 1700 Fribourg', 'description des appartements à louer', 0, NULL, 3, 1),
+(3, 1, 'Route de Villars 44 à 1700 Fribourg', 'description des appartements à louer', 0, NULL, 4, 1),
+(4, 1, 'Impasse de la Grangette 11, 15 à 1752 Villars-sur-Glâne', 'description des appartements à louer', 0, NULL, 3, 2),
+(5, 1, 'Route du Sablion 7 à 1772 Grolley', 'description des appartements à louer', 1, NULL, 4, 3),
+(6, 1, 'Route du Chasseral 1-3-5 1470 Estavayer-le-lac', 'description des appartements à louer', 0, 'img/fribourg1.png', 4, 4),
+(7, 2, 'Rue de la Rouvenettaz 2-3-4-5-5bis à 1820 Montreux', 'description des appartements à louer', 0, 'img/vaud1.png', 4, 5),
+(8, 2, 'Avenue des Alpes 60-62 à 1820 Montreux', 'description des appartements à louer', 0, 'img/vaud2.png', 4, 5),
+(9, 2, 'Rue du Lac 40 1815 Clarens / Rue du Port 2-4 à 1815 Clarens', 'description des appartements à louer', 0, 'img/vaud3.png', 4, 5),
+(10, 2, 'Avenue de Belmont 29 à 1820 Montreux', 'description des appartements à louer', 0, 'img/vaud4.png', 4, 5),
+(11, 2, 'Avenue de Collonge 15 à 1820 Territet', 'description des appartements à louer', 0, 'img/vaud5.png', 4, 5);
 

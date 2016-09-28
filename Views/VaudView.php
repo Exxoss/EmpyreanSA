@@ -11,7 +11,7 @@ class VaudView
     function __construct(){
 
     }
-    function display($tel, $fax){
+    function display($tel, $fax, $Immeubles, $Techs){
         echo "<!DOCTYPE html>
 <html lang=\"en\">
 <head>
@@ -59,82 +59,69 @@ class VaudView
             <a href=\"doc/remise de logement.pdf\" download=\"rl\"><li>Remise de logement <i class=\"fa fa-download\"></i></li></a>
         </ul>
     </aside>
-    <div id=\"wrapper\" class=\"content\">
-        <article class=\"details\">
-            <img src=\"img/vaud1.png\" alt=\"photo\">
-            <h2>Rue de la Rouvenettaz 2, 3, 4, 5, 5bis à 1820 Montreux</h2>
-            <p>description des appartements à louer</p>
-            <h5>Appartements libres : 0</h5>
-            <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-            <div class=\"rt\">
-                <h4>Responsable technique</h4>
-                <ul>
-                    <li>Monsieur Philippe Delez</li>
-                    <li><i class=\"fa fa-phone\"></i> &nbsp; 079 219 24 47</li>
-                </ul>
-            </div>
-        </article>
+    <div id=\"wrapper\" class=\"content\">";
+        foreach ($Immeubles as $Immeuble) {
+            echo "<article class=\"details\">";
 
-        <article class=\"details\">
-            <img src=\"img/vaud2.png\" alt=\"photo\">
-            <h2>Avenue des Alpes 60, 62 à 1820 Montreux</h2>
-            <p>description des appartements à louer</p>
-            <h5>Appartements libres : 0</h5>
-            <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-            <div class=\"rt\">
-                <h4>Responsable technique</h4>
-                <ul>
-                    <li>Monsieur Philippe Delez</li>
-                    <li><i class=\"fa fa-phone\"></i> &nbsp; 079 219 24 47</li>
-                </ul>
-            </div>
-        </article>
+            if ($Immeuble->getImmeublePathImg() != null) {
+                echo "<img src='" . $Immeuble->getImmeublePathImg() . "' alt='photo'>";
+            } else {
+                echo "<img src='img/nonDispo.jpg' alt='photo'>";
+            }
+            echo "<h2>" . $Immeuble->getImmeubleAdress() . "</h2>";
+            echo "<p>" . $Immeuble->getImmeubleDescription() . "</p>";
+            echo "<h5> Appartement libres : " . $Immeuble->getImmeubleFreeSlot() . "</h5>";
 
-        <article class=\"details\">
-            <img src=\"img/vaud3.png\" alt=\"photo\">
-            <h2>Rue du Lac 40 à 1815 Clarens / Rue du Port 2, 4 à 1815 Clarens</h2>
-            <p>description des appartements à louer</p>
-            <h5>Appartements libres : 0</h5>
-            <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-            <div class=\"rt\">
-                <h4>Responsable technique</h4>
-                <ul>
-                    <li>Monsieur Philippe Delez</li>
-                    <li><i class=\"fa fa-phone\"></i> &nbsp; 079 219 24 47</li>
-                </ul>
-            </div>
-        </article>
+            //gestion des notations
+            switch ($Immeuble->getImmeubleLvl()) {
+                case 0:
+                    echo "<h6><i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 1:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 2:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 3:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 4:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>";
+                    break;
+                case 5:
+                    echo "<h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i></h6>";
+                    break;
+            }
 
-        <article class=\"details\">
-            <img src=\"img/vaud4.png\" alt=\"photo\">
-            <h2>Avenue de Belmont 29 à 1820 Montreux</h2>
-            <p>description des appartements à louer</p>
-            <h5>Appartements libres : 0</h5>
-            <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-            <div class=\"rt\">
-                <h4>Responsable technique</h4>
-                <ul>
-                    <li>Monsieur Philippe Delez</li>
-                    <li><i class=\"fa fa-phone\"></i> &nbsp; 079 219 24 47</li>
-                </ul>
-            </div>
-        </article>
+            //gestion Technicien
+            foreach ($Techs as $Tech) {
+                if ($Immeuble->getTechId() == $Tech->getTechId()) {
+                    echo "<div class='rt'>
+                        <h4>Responsable Technique</h4>
+                        <ul>
+                            <li>" . $Tech->getTechName() . "</li>";
+                    if ($Tech->getTechAdress() != null) {
+                        echo "<li><i class=\"fa fa-home\"></i> &nbsp; " . $Tech->getTechAdress() . "</li>";
+                    } else {
+                        echo "<li><i class=\"fa fa-home\"></i> &nbsp; Indisponnible</li>";
+                    }
+                    if ($Tech->getTechPhoneNumber() != null) {
+                        echo "<li><i class=\"fa fa-phone\"></i> &nbsp; " . $Tech->getTechPhoneNumber() . "</li>";
+                    } else {
+                        echo "<li><i class=\"fa fa-phone\"></i> &nbsp; Indisponnible</li>";
+                    }
 
-        <article class=\"details\">
-            <img src=\"img/vaud5.png\" alt=\"photo\">
-            <h2>Avenue de Collonge 15 à 1820 Territet</h2>
-            <p>description des appartements à louer</p>
-            <h5>Appartements libres : 0</h5>
-            <h6><i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star\"></i> <i class=\"fa fa-star-o\"></i></h6>
-            <div class=\"rt\">
-                <h4>Responsable technique</h4>
-                <ul>
-                    <li>Monsieur Philippe Delez</li>
-                    <li><i class=\"fa fa-phone\"></i> &nbsp; 079 219 24 47</li>
-                </ul>
-            </div>
-        </article>
-    </div>
+                    echo "</ul>
+                    </div>";
+                }
+            }
+
+            echo "</article>";
+
+        }
+
+        echo "</div>
 
 </section>
 <footer>

@@ -64,8 +64,14 @@ class HomeController
         $tel = $home->getHomeTel();
         $fax = $home->getHomeFax();
 
+        $ImmeubleDAO= new ImmeubleDAO();
+        $Immeubles = $ImmeubleDAO->getImmeubleVaud();
+
+        $TechDAO = new TechDAO();
+        $Techs = $TechDAO->getTech();
+
         $view = new VaudView();
-        $view->display($tel, $fax);
+        $view->display($tel, $fax, $Immeubles, $Techs);
     }
 
     function renderContact() {
