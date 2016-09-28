@@ -65,16 +65,16 @@ class FribourgView
             echo "<article class=\"details\">";
 
             if ($Immeuble->getImmeublePathImg() != null) {
-                echo "<img src='".$Immeuble->getImmeublePathImg()."' alt='photo'>";
+                echo "<img src='" . $Immeuble->getImmeublePathImg() . "' alt='photo'>";
             } else {
                 echo "<img src='img/nonDispo.jpg' alt='photo'>";
             }
-            echo "<h2>".$Immeuble->getImmeubleAdress()."</h2>";
-            echo "<p>".$Immeuble->getImmeubleDescription()."</p>";
-            echo "<h5> Appartement libres : ".$Immeuble->getImmeubleFreeSlot()."</h5>";
+            echo "<h2>" . $Immeuble->getImmeubleAdress() . "</h2>";
+            echo "<p>" . $Immeuble->getImmeubleDescription() . "</p>";
+            echo "<h5> Appartement libres : " . $Immeuble->getImmeubleFreeSlot() . "</h5>";
 
             //gestion des notations
-            switch ($Immeuble->getImmeubleLvl()){
+            switch ($Immeuble->getImmeubleLvl()) {
                 case 0:
                     echo "<h6><i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i> <i class=\"fa fa-star-o\"></i></h6>";
                     break;
@@ -96,19 +96,31 @@ class FribourgView
             }
 
             //gestion Technicien
+            foreach ($Techs as $Tech) {
+                if ($Immeuble->getTechId() == $Tech->getTechId()) {
+                    echo "<div class='rt'>
+                        <h4>Responsable Technique</h4>
+                        <ul>
+                            <li>" . $Tech->getTechName() . "</li>";
+                    if ($Tech->getTechAdress() != null) {
+                        echo "<li><i class=\"fa fa-home\"></i> &nbsp; " . $Tech->getTechAdress() . "</li>";
+                    } else {
+                        echo "<li><i class=\"fa fa-home\"></i> &nbsp; Indisponnible</li>";
+                    }
+                    if ($Tech->getTechPhoneNumber() != null) {
+                        echo "<li><i class=\"fa fa-phone\"></i> &nbsp; " . $Tech->getTechPhoneNumber() . "</li>";
+                    } else {
+                        echo "<li><i class=\"fa fa-phone\"></i> &nbsp; Indisponnible</li>";
+                    }
+
+                    echo "</ul>
+                    </div>";
+                }
+            }
 
             echo "</article>";
 
         }
-
-               /* <div class=\"rt\">
-                    <h4>Responsable technique</h4>
-                    <ul>
-                        <li>Monsieur Julio Simao</li>
-                        <li><i class=\"fa fa-home\"></i> &nbsp; Av.de Beauregard 9, 1700 Fribourg</li>
-                        <li><i class=\"fa fa-phone\"></i> &nbsp; 079 325 26 83</li>
-                    </ul>
-                </div> */
 
 
 
