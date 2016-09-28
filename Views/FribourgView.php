@@ -51,7 +51,7 @@ class FribourgView
             <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
         </ul>
     </div>
-    <section style=\"background-color: rgb(211, 211, 211);\">
+    <section style=\"background-color: rgb(250, 250, 250);\">
         <aside class=\"content\">
             <ul>
                 <a href=\"doc/Demande de location fribourg.pdf\" download=\"dlf\"><li>Demande de location Fribourg <i class=\"fa fa-download\"></i></li></a>
