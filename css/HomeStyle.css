@@ -1,0 +1,141 @@
+body {
+    margin :0px;
+    font-family: Arial;
+}
+
+/* -----------------------------nav-----------------------------------------------*/
+nav {
+    width: 100%;
+    background-image:linear-gradient(#e74c3c, #c14b3b);
+    position: fixed;
+    top: 0px;
+}
+nav ul {
+    list-style: none;
+    margin : 0px;
+    padding: 0px;
+}
+nav ul li {
+    display : inline-block;
+    vertical-align: top;
+    padding: 0px;
+
+}
+.liImg {
+    height : 70px;
+}
+nav ul li img {
+    height : 60px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-left: 15px;
+
+}
+nav ul a li {
+    font-size: 20px;
+    color: #f0f0f0;
+    height : 45px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+nav ul a li:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+    /* -----------------------------Home Search (header)-----------------------------------------------*/
+header {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../img/slide.png");
+    background-position: center;
+    text-align: center;
+}
+header form {
+    padding-top: 50vh;
+}
+header form select {
+    width: 370px;
+    height: 50px;
+}
+
+#Button {
+    -webkit-animation: none;
+    border: none;
+    font-size: 15px;
+    height : 50px;
+    width: 50px;
+    background-image:linear-gradient(#e74c3c, #c14b3b);
+    color: #ecf0f1;
+    border-radius: 5px;
+}
+
+
+/* -----------------------------HomeInf -----------------------------------------------*/
+#homeInf {
+    width: 100%;
+    text-align: center;
+    background-image:linear-gradient(#f7fbfc, #c5c9ca);
+    color: #2c3e50;
+}
+#homeInf .blocInf {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+
+}
+#homeInf .blocInf ul {
+    list-style: none;
+    padding: 0px;
+}
+#homeInf .blocInf ul a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+#homeInf .blocInf ul li {
+    padding-bottom: 15px;
+}
+#homeInf .blocInf ul li:hover {
+    color: #56768a;
+}
+
+/* -----------------------------Footer-----------------------------------------------*/
+#footer {
+    width: 100%;
+    text-align: center;
+    background-image:linear-gradient(#bdc3c7, #a4aaae);
+    color: #2c3e50;
+}
+#footer .blocFooter {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#footer .blocFooter a i{
+    font-size: 35px;
+    color: #2c3e50;
+}
+#footer .blocFooter a i:hover{
+    color: #56768a;
+
+}
+/* -----------------------------Copyright-----------------------------------------------*/
+#copyright {
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    background-image:linear-gradient(#7f8c8d, #717e7f);
+    color : #ecf0f1;
+}
+#copyright p {
+    padding-top: 20px;
+    margin: 0px;
+}
+

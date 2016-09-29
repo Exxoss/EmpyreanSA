@@ -3,6 +3,7 @@ html {
 }
 body {
     margin: 0px;
+    height: auto;
     background: url("../img/slide.png");
 }
 #controlBar{
@@ -16,12 +17,12 @@ header {
 }
 @media screen and (min-width: 1781px) {
     #slider {
-        height : 270px;
+        height : 600px;
     }
 }
 @media screen and (max-width: 1780px) {
     #slider {
-        height : 70px;
+        height : 600px;
     }
 }
 #slider {
@@ -102,60 +103,72 @@ nav {
 }
 section {
     margin: 0px;
-    height: 100%;
 
 }
-@media screen and (max-width: 1780px) {
-    section {
-        text-align: center;
-    }
+
+section {
+    text-align: left;
 }
-@media screen and (max-width: 1085px) {
-    section {
-        background-color: #fafafa;
-    }
-}
+
+
 .content {
-    display : inline-block;
     vertical-align: top;
+    display :inline-block;
 }
-aside {
-    padding-top : 30px;
-    padding-bottom : 30px;
+
+#docsAs {
+    text-align: left;
+    float: left;
+    background-color: transparent;
+    width: 17%;
+    height: 100%;
 }
-aside ul {
+#docsAs ul {
     margin : 0px;
     list-style: none;
-    border-width: 1px;
-    border-color : #1b1b1b;
-    border-style : solid;
-    border-radius: 2px;
     padding: 0px;
 
 }
-aside a {
+#docsAs a {
     text-decoration: none;
     color: #1b1b1b;
 }
-aside li:hover {
+#docsAs li:hover {
     background-color: #ab2e28;
     color: white;
 }
-aside li {
-    background-color: white;
+#docsAs li {
+    background-color: transparent;
+    padding: 15px;
+}
+
+.doc ul {
+    margin : 0px;
+    list-style: none;
+    padding: 0px;
+
+}
+.doc a {
+    text-decoration: none;
+    color: #dddddd;
+}
+.doc a:hover {
+    color: white;
+}
+
+.doc li {
+    background-color: transparent;
     padding: 15px;
 }
 
 article {
     width: 400px;
+    color : #dddddd;
     display: inline-block;
     vertical-align: top;
     margin: 15px;
     padding: 0px;
-    background-color: white;
-    border-width: 1px;
-    border-color : #b3b3b3;
-    border-style : solid;
+    background-color: #545454;
     border-radius: 2px;
 }
 @media screen and (max-width: 671px) {
@@ -172,6 +185,14 @@ article {
         padding: 0px;
         margin-left: 0%;
         -webkit-appearance: none;
+
+    }
+    #wrapperA {
+        width: 100%;
+        padding: 0px;
+        margin-left: 0%;
+        -webkit-appearance: none;
+
     }
 }
 @media screen and (min-width: 671px) {
@@ -184,16 +205,23 @@ article {
     }
     #wrapper {
         padding : 15px;
+        text-align: center;
+        margin: 0px;
         width: 80%;
-        margin-left:2%;
+        background-color: #b3b3b3;
+    }
+    #wrapperA {
+        padding : 0px;
+        width: 100%;
+        text-align: center;
+        background-color: #545454;
     }
 }
 
 article h3{
     margin: 0px;
     padding : 5px;
-    background-color: #ab2e28;
-    color: white;
+    color: #dddddd;
 }
 article h2 {
     font-size:20px;
@@ -251,6 +279,7 @@ article ul {
     }
 }
 .rt {
+    color: #545454;
     margin-left: 15px;
     bottom: 0px;
     background-color: rgb(227,227,227);
@@ -258,12 +287,9 @@ article ul {
 footer {
 }
 #footer{
-    background-color: white;
+    background-color: #bdbdbd;
     text-align: center;
     height : 150px;
-    border-top-width: 2px;
-    border-color : #ab2e28;
-    border-top-style : solid;
 }
 .footPart {
     display: inline-block;
@@ -280,11 +306,7 @@ footer {
     list-style: none;
     padding: 0px;
 }
-#coor {
-    border-right-width: 1px;
-    border-color : #1b1b1b;
-    border-right-style : solid;
-}
+
 @media screen and (max-width: 670px) {
     #coor li {
         margin-bottom: 4px;
@@ -310,6 +332,7 @@ footer {
 }
 #contact {
     text-align: left;
+    min-height: 900px;
 }
 #mailing {
     margin: auto;
@@ -330,7 +353,9 @@ footer {
     min-height : 20px;
     border-radius: 5px;
     padding-left : 5px;
-    border : none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #7b3c48;
 }
 .areawrong {
     width: 95%;
@@ -349,7 +374,9 @@ footer {
     max-height: 175px;
     border-radius: 5px;
     padding-left : 5px;
-    border : none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #7b3c48;
 }
 .areaBwrong {
     width: 95%;
@@ -386,6 +413,7 @@ footer {
 }
 .capter {
     margin-top: 0px;
+
     -webkit-appearance: none;
     -moz-animation: none;
 }

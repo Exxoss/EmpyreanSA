@@ -26,153 +26,115 @@ class HomeView
     <title>Empyrean SA</title>
     <link rel=\"icon\" type=\"image/png\" href=\"img/icon.png\" />
 
-    <link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>
+    <link href=\"css/HomeStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>
+    <link href=\"css/SelectorCSS.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"font-awesome-4.5.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <script src=\"js/responsiveNav.js\"></script>
 </head>
 <body>
-    <div id=\"controlBar\">
-
-    </div>
     <header>
-        <img src=\"img/logo.png\" alt=\"Logo\" height=\"100%\">
+        <!-- home search-->
+        <form action='index.php' method='get'>
+            <input name='Controller' value='Home' style='display: none;'>
+            <span class=\"custom-dropdown custom-dropdown--white\">
+                <select name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">
+                    <option value='renderFribourg'>Fribroug</option>
+                    <option value='renderVaud'>Vaud</option>
+                </select>
+                
+            </span>
+            
+            <input id='Button' type='submit' value='GO'/>
+        </form>
+        
     </header>
+    
     <nav>
-        <ul id=\"menu\">
-            <a href=\"index.php\"><li>Accueil</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderFribourg\"><li>Fribourg</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderVaud\"><li>Vaud</li></a>
+        <ul>
+            <li class='liImg'><img src='img/icon.png' alt='Logo'></li>
+            <a href=\"index.php\"><li>Empyrean SA</li></a>
+            <a href=\"index.php?Controller=Home&Action=renderAppartements\"><li>Appartements</li></a>
             <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
-            <input type=\"button\" id=\"responsiveNav\" value=\"\" onclick=\"toogle()\">
+            <!--<input type=\"button\" id=\"responsiveNav\" value=\"\" onclick=\"toogle()\">-->
         </ul>
     </nav>
-    <div id=\"slider\">
-    </div>
-    <div id=\"phoneNav\" class=\"off\">
-        <ul>
-            <a href=\"index.php\"><li>Accueil</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderFribourg\"><li>Fribourg</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderVaud\"><li>Vaud</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
-        </ul>
-    </div>
-    <section>
-        <aside id=\"homeAside\" class=\"content\">
-            <ul>
+    
+    <div id='homeInf'>
+    
+        <!-- telechargement des documents de locations-->
+        <article class='blocInf'>
+            <h2>Documents</h2>
+            <ul class='doc'>
                 <a href=\"doc/Demande de location fribourg.pdf\" download=\"dlf\"><li>Demande de location Fribourg <i class=\"fa fa-download\"></i></li></a>
                 <a href=\"doc/Demande de location vaud.pdf\" download=\"dlv\"><li>Demande de location Vaud <i class=\"fa fa-download\"></i></li></a>
                 <a href=\"doc/remise de logement.pdf\" download=\"rl\"><li>Remise de logement <i class=\"fa fa-download\"></i></li></a>
             </ul>
-        </aside>
-        <div id=\"wrapper\" class=\"content\">
-            <article class=\"home\">
-                <h3>Bienvenue</h3>
-                <p>";
-        echo $mess;
-        echo "</p>
-                <h4>Information Locataires</h4>
-                <p>";
-        echo $inf;
-        echo "</p>
-            </article>
-            <article class=\"home\">
-                <h3>Horaires d'ouverture</h3>
-                <table style=\"width:100%\">
-                    <tr>
-                        <th>Jour</th>
-                        <th>Matin</th>
-                        <th>Après-midi</th>
-                    </tr>
-                    <tr>
-                        <td>Lundi</td>
-                        <td>9h-12h</td>
-                        <td>Sur RDV</td>
-                    </tr>
-                    <tr>
-                        <td>Mardi</td>
-                        <td>9h-12h</td>
-                        <td>Sur RDV</td>
-                    </tr>
-                    <tr>
-                        <td>Mercredi</td>
-                        <td>9h-12h</td>
-                        <td>Sur RDV</td>
-                    </tr>
-                    <tr>
-                        <td>Jeudi</td>
-                        <td>9h-12h</td>
-                        <td>Sur RDV</td>
-                    </tr>
-                    <tr>
-                        <td>Vendredi</td>
-                        <td>9h-12h</td>
-                        <td>Sur RDV</td>
-                    </tr>
-                    <tr>
-                        <td>Samedi</td>
-                        <td>Fermée</td>
-                        <td>Fermée</td>
-                    </tr>
-                    <tr>
-                        <td>Dimanche</td>
-                        <td>Fermée</td>
-                        <td>Fermée</td>
-                    </tr>
-                </table>
-            </article>
-            <article class=\"home\">
-                <h3>A louer</h3>
-                <img src='img/vaud1.png' alt='img01' class=\"images\" height=\"218px\" style=\"display: block;\"/>
-                <img src='img/vaud2.png' alt='img02' class=\"images\" height=\"218px\" style=\"display: none;\"/>
-                <img src='img/vaud3.png' alt='img03' class=\"images\" height=\"218px\" style=\"display: none;\"/>
+        </article>
+        
+        <!-- Message d'accueil et infos locataire-->
+        <article class='blocInf'>
+            <h2>Bienvenue</h2>
+            <p>";
+            echo $mess;
+            echo "</p>
+            <h3>Information Locataires</h3>
+            <p>";
+            echo $inf;
+            echo "</p>
+        </article>
+        
+        <!-- slider d'image d'apparte-->
+        <article class='blocInf'>
+            <h2>A louer</h2>
+            <img src='img/vaud1.png' alt='img01' class=\"images\" height=\"218px\" style=\"display: block;\"/>
+            <img src='img/vaud2.png' alt='img02' class=\"images\" height=\"218px\" style=\"display: none;\"/>
+            <img src='img/vaud3.png' alt='img03' class=\"images\" height=\"218px\" style=\"display: none;\"/>
 
 
-                <script type=\"text/javascript\">
-                    I = 0 ;
-                    Imax = document.images.length - 2 ;
+            <script type=\"text/javascript\">
+                I = 0 ;
+                Imax = document.images.length - 2 ;
+                setTimeout(suivante, 2000) ;
+
+                function suivante()
+                {
+                    document.getElementsByClassName('images')[I].style.display = \"none\" ;
+                    if ( I < Imax )
+                        I++;
+                    else
+                        I=0;
+                    document.getElementsByClassName('images')[I].style.display = \"block\";
                     setTimeout(suivante, 2000) ;
+                }
+            </script>
+        </article>
+    </div>
+    
+    <div id='footer'>
+    
+        <!-- coordonnées -->
+        <article class='blocFooter'>
+            <h2>Nos Coordonnées</h2>
+            <p><i class=\"fa fa-phone\"></i> &nbsp; Tel : ";
+            echo $tel;
+            echo "</p>
 
-                    function suivante()
-                    {
-                        document.getElementsByClassName('images')[I].style.display = \"none\" ;
-                        if ( I < Imax )
-                            I++;
-                        else
-                            I=0;
-                        document.getElementsByClassName('images')[I].style.display = \"block\";
-                        setTimeout(suivante, 2000) ;
-                    }
-                </script>
-            </article>
-        </div>
-
-    </section>
-    <footer>
-        <div id=\"footer\">
-            <div id=\"coor\" class=\"footPart\">
-                <h3>Nos Coordonnées</h3>
-                <ul>
-                    <li><i class=\"fa fa-phone\"></i> &nbsp; Tel : ";
-        echo $tel;
-        echo "</li>
-                    <li><i class=\"fa fa-fax\"></i> &nbsp; Fax : ";
-        echo $fax;
-        echo "</li>
-                </ul>
-            </div>
-            <div id=\"follow\" class=\"footPart\">
-                <h3>Suivez nous</h3>
-                <ul>
-                    <li><a href=\"https://www.facebook.com/Empyrean-SA-697203737084497/\"><i class=\"fa fa-facebook-square\"></i></a></li>
-                </ul>
-            </div>
-
-        </div>
-        <div id=\"copyr\">
-            <p>Copyright &copy; Empyrean SA 2016</p>
-        </div>
-    </footer>
-
+            <p><i class=\"fa fa-fax\"></i> &nbsp; Fax : ";
+            echo $fax;
+            echo "</p>
+        </article>
+        
+        <!-- liens sociaux -->
+        <article class='blocFooter'>
+            <h2>Suivez-nous</h2>
+            <a href='https://www.facebook.com/Empyrean-SA-697203737084497'><i class=\"fa fa-facebook-square\"></i></a>
+        </article>
+        
+    </div>
+    
+    <div id='copyright'>
+        <p>Copyright &copy; Empyrean SA 2016</p>
+    </div>
 </body>
 </html>";
     }

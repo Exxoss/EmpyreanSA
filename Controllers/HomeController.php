@@ -7,8 +7,7 @@
  * Time: 14:44
  */
 require(dirname(__FILE__) . '/../Views/HomeView.php');
-require(dirname(__FILE__) . '/../Views/FribourgView.php');
-require(dirname(__FILE__) . '/../Views/VaudView.php');
+require(dirname(__FILE__) . '/../Views/AppartementsView.php');
 require(dirname(__FILE__) . '/../Views/ContactView.php');
 
 require(dirname(__FILE__) . '/../Models/Home.php');
@@ -39,6 +38,23 @@ class HomeController
         $view = new HomeView();
         $view->display($tel, $fax, $inf, $mess);
     }
+
+    function renderAppartements() {
+        $homeDAO= new HomePageDAO();
+        $home = $homeDAO->getHomeData();
+
+        $tel = $home->getHomeTel();
+        $fax = $home->getHomeFax();
+
+        $ImmeubleDAO= new ImmeubleDAO();
+        $Immeubles = $ImmeubleDAO->getImmeubleFribourg();
+
+        $TechDAO = new TechDAO();
+        $Techs = $TechDAO->getTech();
+
+        $view = new AppartementsView();
+        $view->display($tel, $fax, $Immeubles, $Techs);
+    }
     
     function renderFribourg() {
         $homeDAO= new HomePageDAO();
@@ -53,7 +69,7 @@ class HomeController
         $TechDAO = new TechDAO();
         $Techs = $TechDAO->getTech();
 
-        $view = new FribourgView();
+        $view = new AppartementsView();
         $view->display($tel, $fax, $Immeubles, $Techs);
     }
 
@@ -70,7 +86,7 @@ class HomeController
         $TechDAO = new TechDAO();
         $Techs = $TechDAO->getTech();
 
-        $view = new VaudView();
+        $view = new AppartementsView();
         $view->display($tel, $fax, $Immeubles, $Techs);
     }
 

@@ -54,7 +54,7 @@ class ContactView
             <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
         </ul>
     </div>
-    <section id=\"contact\" style=\"background-color: rgb(211, 211, 211); min-height: 503px;\" >
+    <section id=\"contact\" style=\"background-color: rgb(250, 250, 250); min-height: 530px;\" >
         <div id=\"verif\" class=\"verifoff\">
             <p>Votre message a été envoyé <img src=\"img/check.png\" width=\"30px\" alt=\"check\"></p>
         </div>
