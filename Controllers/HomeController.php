@@ -47,7 +47,7 @@ class HomeController
         $fax = $home->getHomeFax();
 
         $ImmeubleDAO= new ImmeubleDAO();
-        $Immeubles = $ImmeubleDAO->getImmeubleFribourg();
+        $Immeubles = $ImmeubleDAO->getImmeubleAll();
 
         $TechDAO = new TechDAO();
         $Techs = $TechDAO->getTech();

@@ -64,5 +64,30 @@ class ImmeubleDAO
 
         return $Immeubles;
     }
+    function getImmeubleAll() {
+        $DB = new DataBase();
+        $Immeubles = array();
+
+        $query = "SELECT * FROM Immeuble";
+
+        $DBResult = $DB->DBrunner($query);
+
+        while ($row = $DBResult->fetch()) {
+
+            $Immeuble = new Immeuble();
+
+            $Immeuble->setImmeubleAdress($row["ImmeubleAdress"]);
+            $Immeuble->setImmeubleDescription($row["ImmeubleDescription"]);
+            $Immeuble->setImmeubleFreeSlot($row["ImmeubleFreeSlot"]);
+            $Immeuble->setImmeublePathImg($row["ImmeublePathImg"]);
+            $Immeuble->setImmeubleLvl($row["ImmeubleLvl"]);
+            $Immeuble->setTechId($row["TechId"]);
+
+            array_push($Immeubles, $Immeuble);
+
+        }
+
+        return $Immeubles;
+    }
 
 }
