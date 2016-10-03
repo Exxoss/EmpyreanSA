@@ -1,0 +1,239 @@
+body {
+    margin :0px;
+    font-family: Arial;
+}
+
+/* -----------------------------nav-----------------------------------------------*/
+nav {
+    width: 100%;
+    background-image:linear-gradient(#e74c3c, #c14b3b);
+    position: fixed;
+    top: 0px;
+    z-index: 6000;
+}
+nav ul {
+    list-style: none;
+    margin : 0px;
+    padding: 0px;
+}
+nav ul li {
+    display : inline-block;
+    vertical-align: top;
+    padding: 0px;
+
+}
+.liImg {
+    height : 70px;
+}
+nav ul li img {
+    height : 60px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-left: 15px;
+
+}
+nav ul a li {
+    font-size: 20px;
+    color: #f0f0f0;
+    height : 45px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+nav ul a li:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+
+/* -----------------------------Contact-----------------------------------------------*/
+#wrapper {
+    background-color: #7f8c8d;
+    text-align: center;
+    background-image: url("../img/slide.png");
+    height : 100vh;
+
+}
+#filtre {
+    background-color: rgba(0, 0, 0, 0.71);
+    width: 100%;
+    height: 100%;
+}
+#contact section{
+    text-align: left;
+    color: #d5dbdf;
+    padding-left: 10px;
+    margin-left: 0px;
+    padding-bottom: 20px;
+}
+#contact section h2{
+    font-size: 20px;
+}
+#contact section p{
+    font-size: 14px;
+
+}
+#contact {
+    padding-top: 70px;
+}
+#notif {
+
+}
+#mailing {
+    margin-top: 100px;
+    background-color: rgba(175, 174, 178, 0.66);
+    display: inline-block;
+    width: 460px;
+    padding: 20px;
+    border-radius: 3px;
+}
+.area {
+    width: 95%;
+    min-height : 40px;
+    padding-left : 5px;
+    border-radius: 2px;
+    border : none;
+}
+.areawrong {
+    width: 95%;
+    min-height : 20px;
+    border-radius: 5px;
+    padding-left : 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ff2c2a;
+}
+.areaB {
+    width: 95%;
+    height: 175px;
+    max-height: 175px;
+    border-radius: 2px;
+    padding-left : 5px;
+    border : none;
+}
+.areaBwrong {
+    width: 95%;
+    height: 175px;
+    max-height: 175px;
+    border-radius: 5px;
+    padding-left : 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ff2c2a;
+}
+#send {
+    background-image: linear-gradient(#e74c3c, #c14b3b);
+    border-radius: 5px;
+    height : 40px;
+    width : 120px;
+    font-size: 14px;
+    border : none;
+    color: white;
+    -webkit-appearance: none;
+    -moz-animation: none;
+
+}
+#send:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #79100f;
+}
+.label {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color : #ecf0f1;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 10px;
+}
+.capter {
+    margin-top: 0px;
+    margin-bottom: 7px;
+    -webkit-appearance: none;
+    -moz-animation: none;
+}
+.verifon {
+    width: 100%;
+    text-align: center;
+    background-color: #c1fabe;
+    min-height: 100px;
+
+}
+.verifon p {
+    margin: 0px;
+    padding-top: 30px;
+}
+.verifon img {
+    margin-bottom: -10px;
+}
+.verifoff {
+    display: none;
+}
+.failon {
+    width: 100%;
+    text-align: center;
+    background-color: #fa9b9b;
+    min-height: 100px;
+
+}
+.failon p {
+    margin: 0px;
+    padding-top: 30px;
+}
+.failon img {
+    margin-bottom: -10px;
+}
+.failoff {
+    display: none;
+}
+.wrongon {
+    width: 100%;
+    text-align: center;
+    background-color: #fa9b9b;
+    min-height: 100px;
+
+}
+.wrongon p {
+    margin: 0px;
+    padding-top: 30px;
+}
+.wrongon img {
+    margin-bottom: -10px;
+}
+.wrongoff {
+    display: none;
+}
+
+/* -----------------------------Footer-----------------------------------------------*/
+#footer {
+    width: 100%;
+    text-align: center;
+    background-image:linear-gradient(#bdc3c7, #a4aaae);
+    color: #2c3e50;
+}
+#footer .blocFooter {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#footer .blocFooter a i{
+    font-size: 35px;
+    color: #2c3e50;
+}
+#footer .blocFooter a i:hover{
+    color: #56768a;
+}
+/* -----------------------------Copyright-----------------------------------------------*/
+#copyright {
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    background-image:linear-gradient(#7f8c8d, #717e7f);
+    color : #ecf0f1;
+}
+#copyright p {
+    padding-top: 20px;
+    margin: 0px;
+}

@@ -23,7 +23,7 @@ class ContactView
     <title>Empyrean SA</title>
     <link rel=\"icon\" type=\"image/png\" href=\"img/icon.png\" />
 
-    <link href=\"css/style.css\" rel=\"stylesheet\" type=\"text/css\"/>
+    <link href=\"css/ContactStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>
 
     <link href=\"font-awesome-4.5.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <script src=\"js/responsiveNav.js\"></script>
@@ -31,78 +31,71 @@ class ContactView
     <script src=\"js/jquery.js\"></script>
 </head>
 <body>
-<div id=\"controlBar\">
-
-</div>
-    <header>
-        <img src=\"img/logo.png\" alt=\"Logo\" height=\"100%\">
-    </header>
     <nav>
-        <ul id=\"menu\">
-            <a href=\"index.php\"><li>Accueil</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderFribourg\"><li>Fribourg</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderVaud\"><li>Vaud</li></a>
+        <ul>
+            <li class='liImg'><img src='img/icon.png' alt='Logo'></li>
+            <a href=\"index.php\"><li>Empyrean SA</li></a>
+            <a href=\"index.php?Controller=Home&Action=renderAppartements\"><li>Appartements</li></a>
             <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
-            <input type=\"button\" id=\"responsiveNav\" value=\"\" onclick=\"toogle()\">
+            <!--<input type=\"button\" id=\"responsiveNav\" value=\"\" onclick=\"toogle()\">-->
         </ul>
     </nav>
-    <div id=\"phoneNav\" class=\"off\">
-        <ul>
-            <a href=\"index.php\"><li>Accueil</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderFribourg\"><li>Fribourg</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderVaud\"><li>Vaud</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
-        </ul>
+    <div id='wrapper'>
+    <div id='filtre'>
+        <div id=\"contact\">
+            <div id='notif'>
+                <div id=\"verif\" class=\"verifoff\">
+                    <p>Votre message a été envoyé <img src=\"img/check.png\" width=\"30px\" alt=\"check\"></p>
+                </div>
+                <div id=\"fail\" class=\"failoff\">
+                    <p>Votre message n'a pas été envoyé <img src=\"img/cross.png\" width=\"30px\" alt=\"cross\"></p>
+                </div>
+                <div id=\"wrong\" class=\"wrongoff\">
+                    <p>Champs manquant ou incorrecte <img src=\"img/cross.png\" width=\"30px\" alt=\"cross\"></p>
+                </div>
+            </div>
+            <form id=\"mailing\">
+                <section>
+                    <h2>Contactez-nous</h2>
+                    <p>Rentrez directement en contact avec nous pour toutes demandes de renseignement.</p>
+                </section>
+               
+                <p class=\"capter\"><input type=\"text\" id=\"nom\" name=\"nom\" class=\"area\" placeholder=\"Nom\" required /></p>
+                <p class=\"capter\"><input type=\"text\" id=\"prenom\" name=\"prenom\" class=\"area\" placeholder=\"Prénom\" required /></p>
+                <p class=\"capter\"><input type=\"email\" id=\"email\" name=\"email\" class=\"area\" placeholder=\"youremail@exemple.com\" required /></p>
+                <p class=\"capter\"><input type=\"tel\" id=\"tel\" name=\"tel\" class=\"area\" placeholder=\"Phone number\" required /></p>
+                <p class=\"capter\"><textarea rows=\"5\" id=\"message\" placeholder=\"Message\" class=\"areaB\" name=\"message\" required ></textarea></p>
+                <p><input id=\"send\" type=\"button\" value=\"Envoyer\" onclick=\"envoyer()\"/></p>
+            </form>
+        </div>
     </div>
-    <section id=\"contact\" style=\"background-color: rgb(250, 250, 250); min-height: 530px;\" >
-        <div id=\"verif\" class=\"verifoff\">
-            <p>Votre message a été envoyé <img src=\"img/check.png\" width=\"30px\" alt=\"check\"></p>
-        </div>
-        <div id=\"fail\" class=\"failoff\">
-            <p>Votre message n'a pas été envoyé <img src=\"img/cross.png\" width=\"30px\" alt=\"cross\"></p>
-        </div>
-        <div id=\"wrong\" class=\"wrongoff\">
-            <p>Champs manquant ou incorrecte <img src=\"img/cross.png\" width=\"30px\" alt=\"cross\"></p>
-        </div>
-        <form id=\"mailing\">
-            <p style=\"margin-top: 0px;\" class=\"label\">Nom</p>
-            <p class=\"capter\"><input type=\"text\" id=\"nom\" name=\"nom\" class=\"area\" placeholder=\"Nom\" required /></p>
-            <p class=\"label\">Prénom</p>
-            <p class=\"capter\"><input type=\"text\" id=\"prenom\" name=\"prenom\" class=\"area\" placeholder=\"Prénom\" required /></p>
-            <p class=\"label\">e-mail</p>
-            <p class=\"capter\"><input type=\"email\" id=\"email\" name=\"email\" class=\"area\" placeholder=\"youremail@exemple.com\" required /></p>
-            <p class=\"label\">Tel</p>
-            <p class=\"capter\"><input type=\"tel\" id=\"tel\" name=\"tel\" class=\"area\" placeholder=\"Phone number\" required /></p>
-            <p class=\"label\">Message</p>
-            <p class=\"capter\"><textarea rows=\"5\" id=\"message\" placeholder=\"Message\" class=\"areaB\" name=\"message\" required ></textarea></p>
-            <p style=\"text-align: center\"><input id=\"send\" type=\"button\" value=\"Envoyer\" onclick=\"envoyer()\"/></p>
-        </form>
-    </section>
-    <footer>
-        <div id=\"footer\">
-            <div id=\"coor\" class=\"footPart\">
-                <h3>Nos Coordonnées</h3>
-                <ul>
-                    <li><i class=\"fa fa-phone\"></i> &nbsp; Tel : ";
-        echo $tel;
-        echo "</li>
-                    <li><i class=\"fa fa-fax\"></i> &nbsp; Fax : ";
-        echo $fax;
-        echo "</li>
-                </ul>
-            </div>
-            <div id=\"follow\" class=\"footPart\">
-                <h3>Suivez nous</h3>
-                <ul>
-                    <li><a href=\"https://www.facebook.com/Empyrean-SA-697203737084497/\"><i class=\"fa fa-facebook-square\"></i></a></li>
-                </ul>
-            </div>
+    </div>
+    
+    <div id='footer'>
+    
+        <!-- coordonnées -->
+        <article class='blocFooter'>
+            <h2>Nos Coordonnées</h2>
+            <p><i class=\"fa fa - phone\"></i> &nbsp; Tel : ";
+            echo $tel;
+            echo "</p>
 
-        </div>
-        <div id=\"copyr\" style=\"height: 50px;\">
-            <p>Copyright &copy; Empyrean SA 2016</p>
-        </div>
-    </footer>
+            <p><i class=\"fa fa - fax\"></i> &nbsp; Fax : ";
+            echo $fax;
+            echo "</p>
+        </article>
+        
+        <!-- liens sociaux -->
+        <article class='blocFooter'>
+            <h2>Suivez-nous</h2>
+            <a href='https://www.facebook.com/Empyrean-SA-697203737084497'><i class=\"fa fa-facebook-square\"></i></a>
+        </article>
+        
+    </div>
+    
+    <div id='copyright'>
+        <p>Copyright &copy; Empyrean SA 2016</p>
+    </div>
 </body>
 </html>
 

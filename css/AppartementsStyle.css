@@ -60,7 +60,7 @@ nav ul a li:hover {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 0px;
-    color : #2c3e50;
+    margin-left: -300px;
 }
 .blocApparts {
     display: inline-block;
@@ -126,6 +126,8 @@ nav ul a li:hover {
     font-size: 14px;
 }
 #aside {
+    position : fixed;
+    top : 100px;
     background-color: #f0f4f5;
     margin-top: 20px;
     margin-left: 10px;
