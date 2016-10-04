@@ -10,9 +10,9 @@
 
 class DataBase
 {
-    private $host = 'localhost'; // a remplacer par empyreansaangen avant push (host name hébergeur);
-    private $user = 'root';
-    private $pass = 'root';
+    private $host = 'localhost'; // a remplacer par empyreansaangency.com.mysql avant push (host name hébergeur);
+    private $user = 'root';//empyreansaangen
+    private $pass = 'root';//aTPQufXz
 
     function __construct()
     {

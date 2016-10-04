@@ -117,7 +117,7 @@ class AppartementsView
                     <input name='Controller' value='Home' style='display: none;'>
                     <span class=\"custom-dropdown custom-dropdown--white\">
                         <select name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">
-                            <option value='renderFribourg'>Fribroug</option>
+                            <option value='renderFribourg'>Fribourg</option>
                             <option value='renderVaud'>Vaud</option>
                         </select>
                         
