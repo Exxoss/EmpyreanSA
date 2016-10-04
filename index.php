@@ -7,6 +7,7 @@
 */
 
 require(dirname(__FILE__) . '/Controllers/HomeController.php');
+require(dirname(__FILE__) . '/Controllers/AdminController.php');
 
 
 session_start();

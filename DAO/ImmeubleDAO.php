@@ -24,7 +24,9 @@ class ImmeubleDAO
         while ($row = $DBResult->fetch()) {
 
             $Immeuble = new Immeuble();
-
+            
+            $Immeuble->setImmeubleId($row["ImmeubleId"]);
+            $Immeuble->setImmeubleCity($row["ImmeubleCity"]);
             $Immeuble->setImmeubleAdress($row["ImmeubleAdress"]);
             $Immeuble->setImmeubleDescription($row["ImmeubleDescription"]);
             $Immeuble->setImmeubleFreeSlot($row["ImmeubleFreeSlot"]);
@@ -51,6 +53,8 @@ class ImmeubleDAO
 
             $Immeuble = new Immeuble();
 
+            $Immeuble->setImmeubleId($row["ImmeubleId"]);
+            $Immeuble->setImmeubleCity($row["ImmeubleCity"]);
             $Immeuble->setImmeubleAdress($row["ImmeubleAdress"]);
             $Immeuble->setImmeubleDescription($row["ImmeubleDescription"]);
             $Immeuble->setImmeubleFreeSlot($row["ImmeubleFreeSlot"]);
@@ -76,6 +80,8 @@ class ImmeubleDAO
 
             $Immeuble = new Immeuble();
 
+            $Immeuble->setImmeubleId($row["ImmeubleId"]);
+            $Immeuble->setImmeubleCity($row["ImmeubleCity"]);
             $Immeuble->setImmeubleAdress($row["ImmeubleAdress"]);
             $Immeuble->setImmeubleDescription($row["ImmeubleDescription"]);
             $Immeuble->setImmeubleFreeSlot($row["ImmeubleFreeSlot"]);
@@ -88,6 +94,14 @@ class ImmeubleDAO
         }
 
         return $Immeubles;
+    }
+
+    function updateImmeuble($Immeuble) {
+        $DB = new DataBase();
+
+        $query = "UPDATE Immeuble set ImmeubleCity='".$Immeuble->getImmeubleCity()."', ImmeubleAdress='".$Immeuble->getImmeubleAdress()."', ImmeubleDescription='".$Immeuble->getImmeubleDescription()."', ImmeubleFreeSlot='".$Immeuble->getImmeubleFreeSlot()."', ImmeublePathImg='".$Immeuble->getImmeublePathImg()."', ImmeubleLvl='".$Immeuble->getImmeubleLvl()."', TechId='".$Immeuble->getTechId()."'WHERE ImmeubleId=".$Immeuble->getImmeubleId();
+
+        $DB->DBrunner($query);
     }
 
 }

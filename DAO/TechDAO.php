@@ -36,4 +36,14 @@ class TechDAO
         return $Techs;
     }
 
+    function updateTech($Tech){
+
+        $DB = new DataBase();
+
+        $query = "UPDATE Tech set TechName='".$Tech->getTechName()."', TechAdress='".$Tech->getTechAdress()."', TechPhoneNumber='".$Tech->getTechPhoneNumber()." WHERE TechId = ".$Tech->getTechId();
+
+        $DB->DBrunner($query);
+
+    }
+
 }

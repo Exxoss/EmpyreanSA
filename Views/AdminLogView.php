@@ -32,7 +32,7 @@ class AdminLogView
         <section>
             <h2>Admin</h2>
             <p style='color: #4E6A80;'>Toute personne se trouvant sur cette page sans y être habilité, s'expose à des poursuites judiciares graves.</p>
-            <form action='index.php?Controller=Home&Action=renderSecureAdmin' method='post'>
+            <form action='index.php?Controller=Admin&Action=validatePwd' method='post'>
             
                 <p style='font-size: 24px;'><i class=\"fa fa-key\" aria-hidden=\"true\"></i> <input id='textPwd' type='password' name='pwd' placeholder='Password'></p>
                 <p><input id='subPwd' type='submit'></p>

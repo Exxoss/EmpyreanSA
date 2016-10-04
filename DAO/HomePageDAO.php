@@ -45,5 +45,12 @@ class HomePageDAO
 
         return $pwd;
     }
+    function updateHomeData($home) {
+        $DB = new DataBase();
+
+        $query = "UPDATE Home set HomeFax='".$home->getHomeFax()."', HomeInf='".$home->getHomeInf()."', HomeMess='".$home->getHomeMess()."', HomeTel='".$home->getHomeTel()."' WHERE HomeId = 1";
+
+        $DB->DBrunner($query);
+    }
 
 }

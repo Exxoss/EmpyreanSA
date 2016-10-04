@@ -110,29 +110,12 @@ class HomeController
     }
     
     function admin() {
-
+        unset($_SESSION['adminPwd']);
         $view = new AdminLogView();
         $view->display();
     }
     
-    function renderSecureAdmin() {
-        $homeDAO= new HomePageDAO();
-        $pwd = $homeDAO->getAdminPwd();
-        if (isset($_POST['pwd'])) {
-
-            if (md5($_POST['pwd']) == $pwd) {
-                $view = new SecurePageView();
-                $view->display();
-            } else {
-                echo "mdp incorect";
-                $this->admin();
-            }
-        } else {
-            $this->admin();
-        }
-
-        
-    }
+    
     
     function byDefault() {
         $this->render();
