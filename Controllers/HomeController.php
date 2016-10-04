@@ -9,6 +9,9 @@
 require(dirname(__FILE__) . '/../Views/HomeView.php');
 require(dirname(__FILE__) . '/../Views/AppartementsView.php');
 require(dirname(__FILE__) . '/../Views/ContactView.php');
+require(dirname(__FILE__) . '/../Views/AdminLogView.php');
+require(dirname(__FILE__) . '/../Views/SecurePageView.php');
+
 
 require(dirname(__FILE__) . '/../Models/Home.php');
 require(dirname(__FILE__) . '/../Models/Immeuble.php');
@@ -27,6 +30,7 @@ class HomeController
     }
 
     function render() {
+        unset($_SESSION['adminPwd']);
         $homeDAO= new HomePageDAO();
         $home = $homeDAO->getHomeData();
 
@@ -40,6 +44,7 @@ class HomeController
     }
 
     function renderAppartements() {
+        unset($_SESSION['adminPwd']);
         $homeDAO= new HomePageDAO();
         $home = $homeDAO->getHomeData();
 
@@ -57,6 +62,7 @@ class HomeController
     }
     
     function renderFribourg() {
+        unset($_SESSION['adminPwd']);
         $homeDAO= new HomePageDAO();
         $home = $homeDAO->getHomeData();
 
@@ -74,6 +80,7 @@ class HomeController
     }
 
     function renderVaud() {
+        unset($_SESSION['adminPwd']);
         $homeDAO= new HomePageDAO();
         $home = $homeDAO->getHomeData();
 
@@ -91,6 +98,7 @@ class HomeController
     }
 
     function renderContact() {
+        unset($_SESSION['adminPwd']);
         $homeDAO= new HomePageDAO();
         $home = $homeDAO->getHomeData();
 
@@ -99,6 +107,31 @@ class HomeController
 
         $view = new ContactView();
         $view->display($tel, $fax);
+    }
+    
+    function admin() {
+
+        $view = new AdminLogView();
+        $view->display();
+    }
+    
+    function renderSecureAdmin() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_POST['pwd'])) {
+
+            if (md5($_POST['pwd']) == $pwd) {
+                $view = new SecurePageView();
+                $view->display();
+            } else {
+                echo "mdp incorect";
+                $this->admin();
+            }
+        } else {
+            $this->admin();
+        }
+
+        
     }
     
     function byDefault() {

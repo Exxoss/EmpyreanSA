@@ -50,7 +50,9 @@ nav ul a li:hover {
     background-color: #7f8c8d;
     text-align: center;
     background-image: url("../img/slide.png");
+    background-position: center;
     height : 100vh;
+    min-height: 830px;
 
 }
 #filtre {
@@ -60,7 +62,7 @@ nav ul a li:hover {
 }
 #contact section{
     text-align: left;
-    color: #d5dbdf;
+    color: #fff9fb;
     padding-left: 10px;
     margin-left: 0px;
     padding-bottom: 20px;
@@ -69,14 +71,15 @@ nav ul a li:hover {
     font-size: 20px;
 }
 #contact section p{
-    font-size: 14px;
+    font-size: 13px;
+    color: #ddd7d9;
 
 }
 #contact {
     padding-top: 70px;
+
 }
 #notif {
-
 }
 #mailing {
     margin-top: 100px;
@@ -85,38 +88,46 @@ nav ul a li:hover {
     width: 460px;
     padding: 20px;
     border-radius: 3px;
+    background-image: url("../img/enveloppe2.png");
+    background-size: 80px;
+    background-position: top 10px right 20px;
+    background-repeat: no-repeat;
 }
 .area {
     width: 95%;
     min-height : 40px;
     padding-left : 5px;
     border-radius: 2px;
-    border : none;
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: #918b8f;
 }
 .areawrong {
     width: 95%;
-    min-height : 20px;
-    border-radius: 5px;
+    min-height : 40px;
     padding-left : 5px;
-    border-width: 2px;
+    border-radius: 2px;
+    border-width: 0.5px;
     border-style: solid;
     border-color: #ff2c2a;
 }
 .areaB {
     width: 95%;
-    height: 175px;
+    height: 120px;
     max-height: 175px;
     border-radius: 2px;
     padding-left : 5px;
+    margin-top: 10px;
     border : none;
 }
 .areaBwrong {
     width: 95%;
-    height: 175px;
+    height: 120px;
     max-height: 175px;
-    border-radius: 5px;
+    border-radius: 2px;
     padding-left : 5px;
-    border-width: 2px;
+    margin-top: 10px;
+    border-width: 0.5px;
     border-style: solid;
     border-color: #ff2c2a;
 }
@@ -147,20 +158,21 @@ nav ul a li:hover {
 }
 .capter {
     margin-top: 0px;
-    margin-bottom: 7px;
+    margin-bottom: 0px;
     -webkit-appearance: none;
     -moz-animation: none;
 }
 .verifon {
+    float: right;
+    color : white;
     width: 100%;
     text-align: center;
-    background-color: #c1fabe;
-    min-height: 100px;
+    height: 40px;
 
 }
 .verifon p {
     margin: 0px;
-    padding-top: 30px;
+    padding-top: 5px;
 }
 .verifon img {
     margin-bottom: -10px;
@@ -169,15 +181,16 @@ nav ul a li:hover {
     display: none;
 }
 .failon {
+    float: right;
+    color : white;
     width: 100%;
     text-align: center;
-    background-color: #fa9b9b;
-    min-height: 100px;
+    height: 40px;
 
 }
 .failon p {
     margin: 0px;
-    padding-top: 30px;
+    padding-top: 5px;
 }
 .failon img {
     margin-bottom: -10px;
@@ -186,15 +199,16 @@ nav ul a li:hover {
     display: none;
 }
 .wrongon {
+    float: right;
+    color : white;
     width: 100%;
     text-align: center;
-    background-color: #fa9b9b;
-    min-height: 100px;
+    height: 40px;
 
 }
 .wrongon p {
     margin: 0px;
-    padding-top: 30px;
+    padding-top: 5px;
 }
 .wrongon img {
     margin-bottom: -10px;

@@ -1,0 +1,43 @@
+body {
+    margin :0px;
+    font-family: Arial;
+    background-color: #e74c3c;
+    text-align: center;
+}
+
+/*------------------------------section--------------------------------*/
+
+section {
+    display : inline-block;
+    width: 500px;
+    background-color: #f0f0f0;
+    margin-top: 25vh;
+    color : #2c3e50;
+    text-align: left;
+    border-radius: 3px;
+}
+section h2 {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+section p {
+    padding-left: 20px;
+    font-size: 12px;
+
+}
+section form {
+    margin-top: 50px;
+    text-align: center;
+}
+#textPwd {
+    width: 200px;
+    height: 40px;
+}
+#subPwd {
+    width: 70px;
+    height: 30px;
+    background-color: #2c3e50;
+    color : #f0f0f0;
+    border : none;
+    border-radius: 3px
+}

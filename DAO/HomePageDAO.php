@@ -31,5 +31,19 @@ class HomePageDAO
         return $home;
 
     }
+    function getAdminPwd() {
+        $DB = new DataBase();
+        $pwd = "";
+
+        $query = "SELECT HomePwd FROM Home LIMIT 1";
+
+        $DBResult = $DB->DBrunner($query);
+
+        while ($row = $DBResult->fetch()) {
+            $pwd = $row["HomePwd"];
+        }
+
+        return $pwd;
+    }
 
 }
