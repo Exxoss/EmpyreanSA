@@ -11,6 +11,7 @@ require(dirname(__FILE__) . '/../Views/AppartementsView.php');
 require(dirname(__FILE__) . '/../Views/ContactView.php');
 require(dirname(__FILE__) . '/../Views/AdminLogView.php');
 require(dirname(__FILE__) . '/../Views/SecurePageView.php');
+require(dirname(__FILE__) . '/../Views/EditMessView.php');
 
 
 require(dirname(__FILE__) . '/../Models/Home.php');
