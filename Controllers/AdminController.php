@@ -103,17 +103,23 @@ class AdminController
                 if (isset($_POST['mess'])) {
                     $home->setHomeMess($_POST['mess']);
                 }
-                if (isset($_POST['inf'])) {
+                else if (isset($_POST['inf'])) {
                     $home->setHomeInf($_POST['inf']);
                 }
-                if (isset($_POST['tel'])) {
+                else if (isset($_POST['tel'])) {
                     $home->setHomeTel($_POST['tel']);
                 }
-                if (isset($_POST['fax'])) {
+                else if (isset($_POST['fax'])) {
                     $home->setHomeFax($_POST['fax']);
                 }
 
-                $homeDAO->updateHomeData($home);
+                $DB = new DataBase();
+
+                try {
+                    $DB->updateHomeData($home);
+                } catch (mysqli_sql_exception $e) {
+                    echo $e;
+                }
 
                 $this->renderSecureAdmin();
 
