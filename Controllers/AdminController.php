@@ -89,6 +89,58 @@ class AdminController
             $ctrl->admin();
         }
     }
+    function editInf() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+                $homeDAO= new HomePageDAO();
+                $home = $homeDAO->getHomeData();
+
+                $tel = $home->getHomeTel();
+                $fax = $home->getHomeFax();
+                $inf = $home->getHomeInf();
+                $mess = $home->getHomeMess();
+
+                $view = new EditInfView();
+                $view->display($inf);
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+    function editCoor() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+                $homeDAO= new HomePageDAO();
+                $home = $homeDAO->getHomeData();
+
+                $tel = $home->getHomeTel();
+                $fax = $home->getHomeFax();
+                $inf = $home->getHomeInf();
+                $mess = $home->getHomeMess();
+
+                $view = new EditCoorView();
+                $view->display($tel, $fax);
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
 
     function editExe() {
         $homeDAO= new HomePageDAO();
@@ -103,13 +155,13 @@ class AdminController
                 if (isset($_POST['mess'])) {
                     $home->setHomeMess($_POST['mess']);
                 }
-                else if (isset($_POST['inf'])) {
+                if (isset($_POST['inf'])) {
                     $home->setHomeInf($_POST['inf']);
                 }
-                else if (isset($_POST['tel'])) {
+                if (isset($_POST['tel'])) {
                     $home->setHomeTel($_POST['tel']);
                 }
-                else if (isset($_POST['fax'])) {
+                if (isset($_POST['fax'])) {
                     $home->setHomeFax($_POST['fax']);
                 }
 

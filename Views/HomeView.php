@@ -77,7 +77,7 @@ class HomeView
             <p>";
             echo $mess;
             echo "</p>
-            <h3>Information Locataires</h3>
+            <h3>Information Locataire</h3>
             <p>";
             echo $inf;
             echo "</p>

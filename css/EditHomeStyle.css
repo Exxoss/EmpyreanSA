@@ -70,6 +70,21 @@ section h2 {
     text-align: center;
     margin-top: 20px;
 }
+#tel {
+    width: 250px;
+    border : none;
+    border-radius: 2px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+}
+#fax {
+    width: 250px;
+    border : none;
+    border-radius: 2px;
+    font-size: 14px;
+    text-align: center;
+}
 #sub {
     border: none;
     color : #ecf0f1;

@@ -48,15 +48,15 @@ class SecurePageView
                         
                     </article>
                     <article>
-                        <a href='#'><div class='buttonInf'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></div></a>
-                        <h3>Information Locataires</h3>
+                        <a href='index.php?Controller=Admin&Action=editInf'><div class='buttonInf'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></div></a>
+                        <h3>Information Locataire</h3>
                         <p>";
                         echo $inf;
                         echo "</p>
                         
                     </article>
                     <article>
-                        <a href='#'><div class='buttonInf'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></div></a>
+                        <a href='index.php?Controller=Admin&Action=editCoor'><div class='buttonInf'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></div></a>
                         <h2>Nos Coordonnées</h2>
                         <p><i class=\"fa fa-phone\"></i> &nbsp; Tel : ";
                         echo $tel;
