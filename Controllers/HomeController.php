@@ -14,6 +14,7 @@ require(dirname(__FILE__) . '/../Views/SecurePageView.php');
 require(dirname(__FILE__) . '/../Views/EditMessView.php');
 require(dirname(__FILE__) . '/../Views/EditInfView.php');
 require(dirname(__FILE__) . '/../Views/EditCoorView.php');
+require(dirname(__FILE__) . '/../Views/EditImmeubleView.php');
 
 
 require(dirname(__FILE__) . '/../Models/Home.php');

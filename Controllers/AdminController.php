@@ -142,6 +142,29 @@ class AdminController
         }
     }
 
+    function editImmeuble() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+                $immeubleDAO= new ImmeubleDAO();
+                $immeuble = $immeubleDAO->getImmeubleById($_GET['Id']);
+
+                $view = new EditImmeubleView();
+                $view->display($immeuble);
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+
     function editExe() {
         $homeDAO= new HomePageDAO();
         $pwd = $homeDAO->getAdminPwd();
@@ -185,5 +208,7 @@ class AdminController
             $ctrl->admin();
         }
     }
+
+
 
 }

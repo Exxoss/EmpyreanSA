@@ -96,6 +96,31 @@ class ImmeubleDAO
         return $Immeubles;
     }
 
+    function getImmeubleById($Id) {
+        $DB = new DataBase();
+        $Immeuble = new Immeuble();
+
+        $query = "SELECT * FROM Immeuble WHERE ImmeubleId=".$Id;
+
+        $DBResult = $DB->DBrunner($query);
+
+        while ($row = $DBResult->fetch()) {
+
+            $Immeuble->setImmeubleId($row["ImmeubleId"]);
+            $Immeuble->setImmeubleCity($row["ImmeubleCity"]);
+            $Immeuble->setImmeubleAdress($row["ImmeubleAdress"]);
+            $Immeuble->setImmeubleDescription($row["ImmeubleDescription"]);
+            $Immeuble->setImmeubleFreeSlot($row["ImmeubleFreeSlot"]);
+            $Immeuble->setImmeublePathImg($row["ImmeublePathImg"]);
+            $Immeuble->setImmeubleLvl($row["ImmeubleLvl"]);
+            $Immeuble->setTechId($row["TechId"]);
+
+
+        }
+
+        return $Immeuble;
+    }
+
     function updateImmeuble($Immeuble) {
         $DB = new DataBase();
 

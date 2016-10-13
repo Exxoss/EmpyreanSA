@@ -133,7 +133,7 @@ class SecurePageView
 
                             echo "</div>
                             <div class='blocApparts insideBlocButton'>
-                                <a href='#'><div class='buttonM'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></div></a>
+                                <a href='index.php?Controller=Admin&Action=editImmeuble&Id=".$Immeuble->getImmeubleId()."'><div class='buttonM'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></div></a>
                                 <a href='#'><div class='buttonS'><i class=\"fa fa-times\" aria-hidden=\"true\"></i></div></a>
                             </div>
                             </article>";
