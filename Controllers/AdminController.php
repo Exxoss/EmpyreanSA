@@ -151,8 +151,11 @@ class AdminController
                 $immeubleDAO= new ImmeubleDAO();
                 $immeuble = $immeubleDAO->getImmeubleById($_GET['Id']);
 
+                $techDAO = new TechDAO();
+                $techs = $techDAO->getTech();
+
                 $view = new EditImmeubleView();
-                $view->display($immeuble);
+                $view->display($immeuble, $techs);
 
             } else {
                 echo "password incorrect";
