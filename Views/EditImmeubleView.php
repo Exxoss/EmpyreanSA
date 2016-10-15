@@ -42,7 +42,9 @@ class EditImmeubleView
         <div id='wrapper'>
         <section>
             
-            <form action='index.php?Controller=Admin&Action=editExe' method='post'>";
+            <form action='index.php?Controller=Admin&Action=editImmeubleExe' method='post'>
+            
+                <input type='hidden' name='Id' value='".$immeuble->getImmeubleId()."'>";
 
                 if ($immeuble->getImmeublePathImg() != null) {
                     echo "<img id='photo' src='" . $immeuble->getImmeublePathImg() . "' alt='photo'>";

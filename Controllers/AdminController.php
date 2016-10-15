@@ -212,6 +212,49 @@ class AdminController
         }
     }
 
+    function editImmeubleExe() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if ((md5($_SESSION['adminPwd']) == $pwd)&&(isset($_POST['Id']))) {
+
+                $immeubleDAO= new ImmeubleDAO();
+                $immeuble = $immeubleDAO->getImmeubleById($_POST['Id']);
+
+
+                if (isset($_POST['img'])) {
+                    //upload img and set path in database
+                }
+
+                $immeuble->setImmeubleCity($_POST['city']);
+                $immeuble->setImmeubleAdress($_POST['adress']);
+                $immeuble->setImmeubleDescription($_POST['mess']);
+                $immeuble->setImmeubleFreeSlot($_POST['freeSlot']);
+                $immeuble->setImmeubleLvl($_POST['lvl']);
+                $immeuble->setTechId($_POST['rtId']);
+
+                $DB = new DataBase();
+
+                try {
+                    $DB->updateImmeubleOne($immeuble);
+                } catch (mysqli_sql_exception $e) {
+                    echo $e;
+                }
+
+                $this->renderSecureAdmin();
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+
 
 
 }
