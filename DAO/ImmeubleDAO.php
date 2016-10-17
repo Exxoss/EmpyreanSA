@@ -120,13 +120,5 @@ class ImmeubleDAO
 
         return $Immeuble;
     }
-
-    function updateImmeuble($Immeuble) {
-        $DB = new DataBase();
-
-        $query = "UPDATE Immeuble set ImmeubleCity='".$Immeuble->getImmeubleCity()."', ImmeubleAdress='".$Immeuble->getImmeubleAdress()."', ImmeubleDescription='".$Immeuble->getImmeubleDescription()."', ImmeubleFreeSlot='".$Immeuble->getImmeubleFreeSlot()."', ImmeublePathImg='".$Immeuble->getImmeublePathImg()."', ImmeubleLvl='".$Immeuble->getImmeubleLvl()."', TechId='".$Immeuble->getTechId()."'WHERE ImmeubleId=".$Immeuble->getImmeubleId();
-
-        $DB->DBrunner($query);
-    }
-
+    
 }

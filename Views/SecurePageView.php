@@ -139,7 +139,7 @@ class SecurePageView
                             </article>";
 
                 }
-                echo"<a href='#'><article class='addBloc'>
+                echo"<a href='index.php?Controller=Admin&Action=addImmeuble'><article class='addBloc'>
                         <div class='addIm'><i class=\"fa fa-plus\" aria-hidden=\"true\"></i></div>
                     </article></a>
 

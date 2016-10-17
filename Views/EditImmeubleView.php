@@ -42,7 +42,7 @@ class EditImmeubleView
         <div id='wrapper'>
         <section>
             
-            <form action='index.php?Controller=Admin&Action=editImmeubleExe' method='post'>
+            <form action='index.php?Controller=Admin&Action=editImmeubleExe' method='post' enctype='multipart/form-data'>
             
                 <input type='hidden' name='Id' value='".$immeuble->getImmeubleId()."'>";
 

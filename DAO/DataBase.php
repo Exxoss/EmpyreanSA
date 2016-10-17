@@ -96,5 +96,37 @@ class DataBase
 
     }
 
+    function addImmeuble ($Immeuble) {
+        try {
+            $base = new PDO('mysql:host='.$this->host.';dbname=empyreansaangen;charset=utf8', $this->user, $this->pass);
+        }
+
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        $query = "INSERT INTO Immeuble (ImmeubleCity, ImmeubleAdress, ImmeubleDescription, ImmeubleFreeSlot, ImmeublePathImg, ImmeubleLvl, TechId) VALUES (:ImmeubleCity, :ImmeubleAdress, :ImmeubleDescription, :ImmeubleFreeSlot,:ImmeublePathImg, :ImmeubleLvl, :TechId)";
+
+        $stmt = $base->prepare($query);
+
+        $city = $Immeuble->getImmeubleCity();
+        $adress = $Immeuble->getImmeubleAdress();
+        $description = $Immeuble->getImmeubleDescription();
+        $freeSlot = $Immeuble->getImmeubleFreeSlot();
+        $pathImg = $Immeuble->getImmeublePathImg();
+        $lvl = $Immeuble->getImmeubleLvl();
+        $techId = $Immeuble->getTechId();
+
+        $stmt->bindParam(':ImmeubleCity', $city, PDO::PARAM_INT);
+        $stmt->bindParam(':ImmeubleAdress', $adress, PDO::PARAM_STR);
+        $stmt->bindParam(':ImmeubleDescription', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':ImmeubleFreeSlot', $freeSlot, PDO::PARAM_INT);
+        $stmt->bindParam(':ImmeublePathImg', $pathImg, PDO::PARAM_STR);
+        $stmt->bindParam(':ImmeubleLvl', $lvl, PDO::PARAM_INT);
+        $stmt->bindParam(':TechId', $techId, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
+
 
 }

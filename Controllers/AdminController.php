@@ -223,8 +223,39 @@ class AdminController
                 $immeuble = $immeubleDAO->getImmeubleById($_POST['Id']);
 
 
-                if (isset($_POST['img'])) {
-                    //upload img and set path in database
+                if ($_FILES['img']['name'] != "") {
+                    $maxsize = 10000000;
+                    $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+
+                    if ($_FILES['img']['error'] == 0) {
+                        if ($_FILES['img']['size'] < $maxsize) {
+                            $extension_upload = strtolower(  substr(  strrchr($_FILES['img']['name'], '.')  ,1)  );
+                            if ( in_array($extension_upload,$extensions_valides) ) {
+                                $newFileName = md5(uniqid(rand(),true));
+                                $newFileName = "img/".$newFileName.$extension_upload;
+                                $resultat = move_uploaded_file($_FILES['img']['tmp_name'],$newFileName);
+                                if ($resultat) {
+                                    $immeuble->setImmeublePathImg($newFileName);
+                                }
+                                else {
+                                    //transfert srv echec
+                                    echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Erreur lors transfert de l'image</div>";
+                                }
+                            }
+                            else {
+                                //extension incorrect
+                                echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Type d'image incorrect</div>";
+                            }
+                        }
+                        else {
+                            //fichier trop volumineu
+                            echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Image trop volumineuse</div>";
+                        }
+                    }
+                    else {
+                        //erreur d'upload du fichier
+                        echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Erreur lors transfert de l'image</div>";
+                    }
                 }
 
                 $immeuble->setImmeubleCity($_POST['city']);
@@ -254,7 +285,102 @@ class AdminController
             $ctrl->admin();
         }
     }
+    function addImmeuble() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+
+                $techDAO = new TechDAO();
+                $techs = $techDAO->getTech();
+
+                $view = new AddImmeubleView();
+                $view->display($techs);
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+
+    function addImmeubleExe() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
 
 
+                $immeuble = new Immeuble();
+
+
+                if ($_FILES['img']['name'] != "") {
+                    $maxsize = 10000000;
+                    $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+
+                    if ($_FILES['img']['error'] == 0) {
+                        if ($_FILES['img']['size'] < $maxsize) {
+                            $extension_upload = strtolower(  substr(  strrchr($_FILES['img']['name'], '.')  ,1)  );
+                            if ( in_array($extension_upload,$extensions_valides) ) {
+                                $newFileName = md5(uniqid(rand(),true));
+                                $newFileName = "img/".$newFileName.$extension_upload;
+                                $resultat = move_uploaded_file($_FILES['img']['tmp_name'],$newFileName);
+                                if ($resultat) {
+                                    $immeuble->setImmeublePathImg($newFileName);
+                                }
+                                else {
+                                    //transfert srv echec
+                                    echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Erreur lors transfert de l'image</div>";
+                                }
+                            }
+                            else {
+                                //extension incorrect
+                                echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Type d'image incorrect</div>";
+                            }
+                        }
+                        else {
+                            //fichier trop volumineu
+                            echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Image trop volumineuse</div>";
+                        }
+                    }
+                    else {
+                        //erreur d'upload du fichier
+                        echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Erreur lors transfert de l'image</div>";
+                    }
+                }
+
+                $immeuble->setImmeubleCity($_POST['city']);
+                $immeuble->setImmeubleAdress($_POST['adress']);
+                $immeuble->setImmeubleDescription($_POST['mess']);
+                $immeuble->setImmeubleFreeSlot($_POST['freeSlot']);
+                $immeuble->setImmeubleLvl($_POST['lvl']);
+                $immeuble->setTechId($_POST['rtId']);
+
+                $DB = new DataBase();
+
+                try {
+                    $DB->addImmeuble($immeuble);
+                } catch (mysqli_sql_exception $e) {
+                    echo $e;
+                }
+
+                $this->renderSecureAdmin();
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
 
 }
