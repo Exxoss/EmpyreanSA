@@ -94,4 +94,5 @@ section h2 {
     margin-top: 30px;
     border-radius: 4px;
     font-size: 12px;
+    outline: none;
 }

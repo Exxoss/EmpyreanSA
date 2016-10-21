@@ -26,12 +26,14 @@ class SecurePageView
     <link rel=\"icon\" type=\"image/png\" href=\"img/icon.png\" />
     <link href=\"css/AdminStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"font-awesome-4.5.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\"/>
+    <script src='js/SuprConfirm.js'></script>
+    <script src='js/bootbox.min.js'></script>
     
     </head>
     <body>
         <header>
-            <img class='headBloc' src='img/icon.png' alt='Logo'>
-            <h1 class='headBloc'>Empyrean SA</h1>
+            <a href='index.php' style='outline: none; text-decoration: none; color: #bdc3c7;'><img class='headBloc' src='img/icon.png' alt='Logo'></a>
+            <a href='index.php' style='outline: none; text-decoration: none; color: #ecf0f1;'><h1 class='headBloc'>Empyrean SA</h1></a>
             <div class='headBloc' id='admin'>admin</div>
         </header>
         
@@ -134,14 +136,17 @@ class SecurePageView
                             echo "</div>
                             <div class='blocApparts insideBlocButton'>
                                 <a href='index.php?Controller=Admin&Action=editImmeuble&Id=".$Immeuble->getImmeubleId()."'><div class='buttonM'><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></div></a>
-                                <a href='#'><div class='buttonS'><i class=\"fa fa-times\" aria-hidden=\"true\"></i></div></a>
+                                <a href='#' onclick='confirmation(".$Immeuble->getImmeubleId().")'><div class='buttonS'><i class=\"fa fa-times\" aria-hidden=\"true\"></i></div></a>
                             </div>
+                       
                             </article>";
 
                 }
                 echo"<a href='index.php?Controller=Admin&Action=addImmeuble'><article class='addBloc'>
                         <div class='addIm'><i class=\"fa fa-plus\" aria-hidden=\"true\"></i></div>
                     </article></a>
+                    
+                    
 
                     </div>
                 

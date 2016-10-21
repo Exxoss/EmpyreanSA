@@ -382,5 +382,26 @@ class AdminController
             $ctrl->admin();
         }
     }
+    function delImmeuble () {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+                $DB = new DataBase();
+                
+                $DB->DelImmeuble($_GET['IdSupr']);
+
+                $this->renderSecureAdmin();
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
 
 }

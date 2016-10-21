@@ -37,14 +37,14 @@ class HomeView
         <form action='index.php' method='get'>
             <input name='Controller' value='Home' style='display: none;'>
             <span class=\"custom-dropdown custom-dropdown--white\">
-                <select name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">
+                <select style='outline: none;' name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">
                     <option value='renderFribourg'>Fribourg</option>
                     <option value='renderVaud'>Vaud</option>
                 </select>
                 
             </span>
             
-            <input id='Button' type='submit' value='GO'/>
+            <input style='outline: none;' id='Button' type='submit' value='GO'/>
         </form>
         
     </header>

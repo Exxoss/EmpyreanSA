@@ -24,6 +24,8 @@ class AddImmeubleView
 
     <title>Empyrean SA</title>
     
+    <script src=\"js/viewer.js\"></script>
+    
     <link rel=\"icon\" type=\"image/png\" href=\"img/icon.png\" />
     <link href=\"css/EditImmeubleStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"css/SelectorCSS.css\" rel=\"stylesheet\" type=\"text/css\"/>
@@ -48,7 +50,7 @@ class AddImmeubleView
 
         
 
-       <p><input type='file' name='img' id='img'></p>
+       <p><input type='file' name='img' id='img' onchange='loadFile(event)'></p>
                 <p>Secteur :  
                 <span class=\"custom-dropdown custom-dropdown--white\">
                     <select name='city' class=\"custom-dropdown__select custom-dropdown__select--white\">

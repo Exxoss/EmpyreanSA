@@ -115,15 +115,20 @@ class AppartementsView
                 <h3>Filtres</h3>
                 <form action='index.php' method='get'>
                     <input name='Controller' value='Home' style='display: none;'>
-                    <span class=\"custom-dropdown custom-dropdown--white\">
-                        <select name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">
-                            <option value='renderFribourg'>Fribourg</option>
-                            <option value='renderVaud'>Vaud</option>
-                        </select>
+                    <span style='outline: none;' class=\"custom-dropdown custom-dropdown--white\">
+                        <select  style='outline: none;' name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">";
+                            if ($_GET['Action'] == 'renderVaud') {
+                                echo "<option value='renderFribourg'>Fribourg</option>
+                                <option value='renderVaud' selected>Vaud</option>";
+                            } else {
+                                echo "<option value='renderFribourg' selected>Fribourg</option>
+                                <option value='renderVaud'>Vaud</option>";
+                            }
+                        echo "</select>
                         
                     </span>
                     
-                    <input id='Button' type='submit' value='GO'/>
+                    <input style='outline: none;' id='Button' type='submit' value='GO'/>
                 </form>
                 <h2>Documents</h2>
                 <ul class='doc'>
