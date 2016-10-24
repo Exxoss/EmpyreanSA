@@ -29,7 +29,9 @@ class HomeView
     <link href=\"css/HomeStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"css/SelectorCSS.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"font-awesome-4.5.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\"/>
-    <script src=\"js/responsiveNav.js\"></script>
+    <script src=\"js/jquery-3.1.1.min.js\"></script>
+    <script src=\"js/toogle.js\"></script>
+    
 </head>
 <body>
     <header>
@@ -48,14 +50,14 @@ class HomeView
         </form>
         
     </header>
-    
     <nav>
         <ul>
-            <li class='liImg'><img src='img/icon.png' alt='Logo'></li>
-            <a href=\"index.php\"><li>Empyrean SA</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderAppartements\"><li>Appartements</li></a>
-            <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
-            <!--<input type=\"button\" id=\"responsiveNav\" value=\"\" onclick=\"toogle()\">-->
+            <li class='liImg'><img src='img/icon.png' alt='Logo'> <i onclick='slideMenu()' id='toogle' class=\"fa fa-bars\" aria-hidden=\"true\"></i></li>
+            <div id='menuLink'>
+                <a href=\"index.php\"><li>Empyrean SA</li></a>
+                <a href=\"index.php?Controller=Home&Action=renderAppartements\"><li>Appartements</li></a>
+                <a href=\"index.php?Controller=Home&Action=renderContact\"><li>Contact</li></a>
+            </div>
         </ul>
     </nav>
     
