@@ -42,6 +42,35 @@ class AppartementsView
     </nav>
     
     <div id='wrapper'>
+        <!-- Docs Filtre-->
+        <div class='blocWrapper'>
+            <div id='aside'>
+                <h3>Filtres</h3>
+                <form action='index.php' method='get'>
+                    <input name='Controller' value='Home' style='display: none;'>
+                    <span style='outline: none;' class=\"custom-dropdown custom-dropdown--white\">
+                        <select  style='outline: none;' name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">";
+                            if ($_GET['Action'] == 'renderVaud') {
+                                echo "<option value='renderFribourg'>Fribourg</option>
+                                <option value='renderVaud' selected>Vaud</option>";
+                            } else {
+                                echo "<option value='renderFribourg' selected>Fribourg</option>
+                                <option value='renderVaud'>Vaud</option>";
+                            }
+                        echo "</select>
+                        
+                    </span>
+                    
+                    <input style='outline: none;' id='Button' type='submit' value='GO'/>
+                </form>
+                <h2>Documents</h2>
+                <ul class='doc'>
+                    <a href=\"doc/Demande de location fribourg.pdf\" download=\"dlf\"><li>Demande de location Fribourg <i class=\"fa fa-download\"></i></li></a>
+                    <a href=\"doc/Demande de location vaud.pdf\" download=\"dlv\"><li>Demande de location Vaud <i class=\"fa fa-download\"></i></li></a>
+                    <a href=\"doc/remise de logement.pdf\" download=\"rl\"><li>Remise de logement <i class=\"fa fa-download\"></i></li></a>
+                </ul>
+            </div>
+        </div>
     
         <!-- Apparts-->
         <div class='blocWrapper'>";
@@ -111,35 +140,7 @@ class AppartementsView
         }
         echo"</div>
         
-        <!-- Docs Filtre-->
-        <div class='blocWrapper'>
-            <div id='aside'>
-                <h3>Filtres</h3>
-                <form action='index.php' method='get'>
-                    <input name='Controller' value='Home' style='display: none;'>
-                    <span style='outline: none;' class=\"custom-dropdown custom-dropdown--white\">
-                        <select  style='outline: none;' name='Action' class=\"custom-dropdown__select custom-dropdown__select--white\">";
-                            if ($_GET['Action'] == 'renderVaud') {
-                                echo "<option value='renderFribourg'>Fribourg</option>
-                                <option value='renderVaud' selected>Vaud</option>";
-                            } else {
-                                echo "<option value='renderFribourg' selected>Fribourg</option>
-                                <option value='renderVaud'>Vaud</option>";
-                            }
-                        echo "</select>
-                        
-                    </span>
-                    
-                    <input style='outline: none;' id='Button' type='submit' value='GO'/>
-                </form>
-                <h2>Documents</h2>
-                <ul class='doc'>
-                    <a href=\"doc/Demande de location fribourg.pdf\" download=\"dlf\"><li>Demande de location Fribourg <i class=\"fa fa-download\"></i></li></a>
-                    <a href=\"doc/Demande de location vaud.pdf\" download=\"dlv\"><li>Demande de location Vaud <i class=\"fa fa-download\"></i></li></a>
-                    <a href=\"doc/remise de logement.pdf\" download=\"rl\"><li>Remise de logement <i class=\"fa fa-download\"></i></li></a>
-                </ul>
-            </div>
-        </div>
+        
     </div>
     
     <div id='footer'>

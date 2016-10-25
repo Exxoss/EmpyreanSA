@@ -85,6 +85,34 @@ nav ul a li:hover {
 
 
 /* -----------------------------Contact-----------------------------------------------*/
+@media screen and (max-width: 560px) {
+    #mailing {
+        margin-top: 100px;
+        background-color: rgba(175, 174, 178, 0.66);
+        display: inline-block;
+        width: 80vw;
+        padding: 20px;
+        border-radius: 3px;
+        background-image: url("../img/enveloppe2.png");
+        background-size: 80px;
+        background-position: top 10px right 20px;
+        background-repeat: no-repeat;
+    }
+}
+@media screen and (min-width: 561px) {
+    #mailing {
+        margin-top: 100px;
+        background-color: rgba(175, 174, 178, 0.66);
+        display: inline-block;
+        width: 460px;
+        padding: 20px;
+        border-radius: 3px;
+        background-image: url("../img/enveloppe2.png");
+        background-size: 80px;
+        background-position: top 10px right 20px;
+        background-repeat: no-repeat;
+    }
+}
 #wrapper {
     background-color: #7f8c8d;
     text-align: center;
@@ -120,18 +148,7 @@ nav ul a li:hover {
 }
 #notif {
 }
-#mailing {
-    margin-top: 100px;
-    background-color: rgba(175, 174, 178, 0.66);
-    display: inline-block;
-    width: 460px;
-    padding: 20px;
-    border-radius: 3px;
-    background-image: url("../img/enveloppe2.png");
-    background-size: 80px;
-    background-position: top 10px right 20px;
-    background-repeat: no-repeat;
-}
+
 .area {
     width: 95%;
     min-height : 40px;
@@ -180,6 +197,7 @@ nav ul a li:hover {
     color: white;
     -webkit-appearance: none;
     -moz-animation: none;
+    outline: none;
 
 }
 #send:hover {

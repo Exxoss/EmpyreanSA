@@ -88,9 +88,9 @@ class HomeView
         <!-- slider d'image d'apparte-->
         <article class='blocInf'>
             <h2>A louer</h2>
-            <img src='img/vaud1.png' alt='img01' class=\"images\" height=\"218px\" style=\"display: block;\"/>
-            <img src='img/vaud2.png' alt='img02' class=\"images\" height=\"218px\" style=\"display: none;\"/>
-            <img src='img/vaud3.png' alt='img03' class=\"images\" height=\"218px\" style=\"display: none;\"/>
+            <img src='img/vaud1.png' alt='img01' class=\"images\" height=\"218px\" width='300px' style=\"display: block;\"/>
+            <img src='img/vaud2.png' alt='img02' class=\"images\" height=\"218px\" width='300px' style=\"display: none;\"/>
+            <img src='img/vaud3.png' alt='img03' class=\"images\" height=\"218px\" width='300px' style=\"display: none;\"/>
 
 
             <script type=\"text/javascript\">

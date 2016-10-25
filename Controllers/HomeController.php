@@ -16,6 +16,8 @@ require(dirname(__FILE__) . '/../Views/EditInfView.php');
 require(dirname(__FILE__) . '/../Views/EditCoorView.php');
 require(dirname(__FILE__) . '/../Views/EditImmeubleView.php');
 require(dirname(__FILE__) . '/../Views/AddImmeubleView.php');
+require(dirname(__FILE__) . '/../Views/EditRTView.php');
+require(dirname(__FILE__) . '/../Views/AddRTView.php');
 
 
 require(dirname(__FILE__) . '/../Models/Home.php');

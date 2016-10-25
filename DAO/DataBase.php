@@ -145,6 +145,47 @@ class DataBase
 
         $stmt->execute();
     }
+    function updateRT($tech) {
+        try {
+            $base = new PDO('mysql:host='.$this->host.';dbname=empyreansaangen;charset=utf8', $this->user, $this->pass);
+        }
+
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        $query = "UPDATE Tech set TechName= :TechName, TechAdress= :TechAdress, TechPhoneNumber= :TechPhoneNumber WHERE TechId= :TechId";
+
+        $stmt = $base->prepare($query);
+
+        $name = $tech->getTechName();
+        $adress = $tech->getTechAdress();
+        $tel= $tech->getTechPhoneNumber();
+        $id= $tech->getTechId();
+
+        $stmt->bindParam(':TechName', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':TechAdress', $adress, PDO::PARAM_STR);
+        $stmt->bindParam(':TechPhoneNumber', $tel, PDO::PARAM_STR);
+        $stmt->bindParam('TechId', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
+
+    function delRT($id) {
+        try {
+            $base = new PDO('mysql:host='.$this->host.';dbname=empyreansaangen;charset=utf8', $this->user, $this->pass);
+        }
+
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        $query = "DELETE FROM Tech WHERE TechId= :TechId";
+
+        $stmt = $base->prepare($query);
+        $stmt->bindParam('TechId', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+    }
 
 
 }

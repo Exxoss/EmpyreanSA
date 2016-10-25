@@ -90,13 +90,22 @@ header {
     background-position: center;
     text-align: center;
 }
+@media screen and (max-width: 560px) {
+    header form select {
+        width: 80vw;
+        height: 50px;
+    }
+}
+@media screen and (min-width: 561px) {
+    header form select {
+        width: 370px;
+        height: 50px;
+    }
+}
 header form {
     padding-top: 50vh;
 }
-header form select {
-    width: 370px;
-    height: 50px;
-}
+
 
 #Button {
     -webkit-animation: none;

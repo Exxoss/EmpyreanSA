@@ -404,4 +404,135 @@ class AdminController
         }
     }
 
+    function editRT () {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+
+                $techDAO = new TechDAO();
+                $techs = $techDAO->getTech();
+
+                $view = new EditRTView();
+                $view->display($techs);
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+    function editRTSelected () {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+
+                $techDAO = new TechDAO();
+                $techs = $techDAO->getTech();
+
+                foreach ($techs as $tech) {
+                    if ($tech->getTechId() == $_GET['Id']) {
+                        $techSelected = $tech;
+                    }
+                }
+
+                $view = new EditRTView();
+                $view->displaySelected($techs, $techSelected);
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+    function editRTExe() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+
+                $techDAO = new TechDAO();
+                $techs = $techDAO->getTech();
+                
+                foreach ($techs as $tech) {
+                    if ($tech->getTechId() == $_GET['Id']) {
+                        $techSelected = $tech;
+                    }
+                }
+
+                //passer les post dans l'objet tech selected + liens (id $GET) dans les deux formulaire d'édition RT
+                $techSelected->setTechId($_POST['rtId']);
+                $techSelected->setTechName($_POST['nom']);
+                $techSelected->setTechAdress($_POST['adress']);
+                $techSelected->setTechPhoneNumber($_POST['tel']);
+
+                $DB = new DataBase();
+                $DB->updateRT($techSelected);
+                $this->renderSecureAdmin();
+                
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+    function addRT() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+
+                $view = new AddRTView();
+                $view->display();
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+    function delRTExe() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+
+                $DB = new DataBase();
+                $DB->delRT($_GET['Id']);
+
+                $this->renderSecureAdmin();
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
+
 }

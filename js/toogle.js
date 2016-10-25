@@ -17,7 +17,7 @@ function slideMenu () {
 }
 
 $(window).resize(function () {
-   if ($(window).width()<=560) {
+   if ($(window).width()<=545) {
        document.getElementById('menuLink').style.display = 'none';
        i=false;
    } else {
