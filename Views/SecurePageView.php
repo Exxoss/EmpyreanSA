@@ -70,8 +70,10 @@ class SecurePageView
                         
                     </article>
                 </section>
-                
+            
                 <section>
+                    <br/>
+                    <a href='index.php?Controller=Admin&Action=editRT' class='buttonMRT' style='color: #ecf0f1;'><i class=\"fa fa-cog\" aria-hidden=\"true\"></i> Responsables technique</a>
                     <div class='blocWrapper'>";
                         foreach ($Immeubles as $Immeuble) {
                             echo "<article>
@@ -120,7 +122,7 @@ class SecurePageView
                             if ($Tech->getTechAdress() != null) {
                             echo "<li><i class=\"fa fa-home\"></i> &nbsp; " . $Tech->getTechAdress() . "</li>";
                             } else {
-                                echo "<li><i class=\"fa fa-home\"></i> &nbsp; Indisponnible</li>";
+                                echo "<li><i class=\"fa fa-home\"></i> &nbsp; Immeuble</li>";
                             }
                             if ($Tech->getTechPhoneNumber() != null) {
                                 echo "<li><i class=\"fa fa-phone\"></i> &nbsp; " . $Tech->getTechPhoneNumber() . "</li>";

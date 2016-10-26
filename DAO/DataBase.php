@@ -166,7 +166,7 @@ class DataBase
         $stmt->bindParam(':TechName', $name, PDO::PARAM_STR);
         $stmt->bindParam(':TechAdress', $adress, PDO::PARAM_STR);
         $stmt->bindParam(':TechPhoneNumber', $tel, PDO::PARAM_STR);
-        $stmt->bindParam('TechId', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':TechId', $id, PDO::PARAM_INT);
 
         $stmt->execute();
     }
@@ -182,7 +182,35 @@ class DataBase
         $query = "DELETE FROM Tech WHERE TechId= :TechId";
 
         $stmt = $base->prepare($query);
-        $stmt->bindParam('TechId', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':TechId', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        
+
+
+    }
+    function addRT($tech) {
+        try {
+            $base = new PDO('mysql:host='.$this->host.';dbname=empyreansaangen;charset=utf8', $this->user, $this->pass);
+        }
+
+        catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+        $query = "INSERT INTO Tech (TechName, TechAdress, TechPhoneNumber) VALUES (:TechName, :TechAdress, :TechPhoneNumber)";
+
+        $stmt = $base->prepare($query);
+
+        $name = $tech->getTechName();
+        $adress = $tech->getTechAdress();
+        $tel = $tech->getTechPhoneNumber();
+
+        $stmt->bindParam(':TechName', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':TechAdress', $adress, PDO::PARAM_STR);
+        $stmt->bindParam(':TechPhoneNumber', $tel, PDO::PARAM_STR);
+
         $stmt->execute();
 
     }

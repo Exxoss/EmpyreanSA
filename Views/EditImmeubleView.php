@@ -117,7 +117,7 @@ class EditImmeubleView
                         }
                     echo "</select>
                     
-                </span> <a href='index.php?Controller=Admin&Action=editRT' style='color: #ecf0f1;'><i class=\"fa fa-pencil buttonM\" aria-hidden=\"true\"></i></a></p>
+                </span> <a href='index.php?Controller=Admin&Action=editRTSelected&Id=".$immeuble->getTechId()."' style='color: #ecf0f1;'><i class=\"fa fa-cog buttonM\" aria-hidden=\"true\"></i></a></p>
                 
                 <p><input type='submit' value='Enregistrer' id='sub'></p>
             </form>

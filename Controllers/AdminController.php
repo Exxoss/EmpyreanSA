@@ -199,6 +199,8 @@ class AdminController
                     echo $e;
                 }
 
+                echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #50A14F; font-size: 18px;' class=\"fa fa-check\" aria-hidden=\"true\"></i> Information modifié</div>";
+
                 $this->renderSecureAdmin();
 
             } else {
@@ -272,6 +274,8 @@ class AdminController
                 } catch (mysqli_sql_exception $e) {
                     echo $e;
                 }
+
+                echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #50A14F; font-size: 18px;' class=\"fa fa-check\" aria-hidden=\"true\"></i> Immeuble modifié</div>";
 
                 $this->renderSecureAdmin();
 
@@ -369,6 +373,7 @@ class AdminController
                 } catch (mysqli_sql_exception $e) {
                     echo $e;
                 }
+                echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #50A14F; font-size: 18px;' class=\"fa fa-check\" aria-hidden=\"true\"></i> Immeuble créé</div>";
 
                 $this->renderSecureAdmin();
 
@@ -391,6 +396,7 @@ class AdminController
                 $DB = new DataBase();
                 
                 $DB->DelImmeuble($_GET['IdSupr']);
+                echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #50A14F; font-size: 18px;' class=\"fa fa-check\" aria-hidden=\"true\"></i> Immeuble supprimé</div>";
 
                 $this->renderSecureAdmin();
             } else {
@@ -513,6 +519,35 @@ class AdminController
             $ctrl->admin();
         }
     }
+    function addRTExe() {
+        $homeDAO= new HomePageDAO();
+        $pwd = $homeDAO->getAdminPwd();
+        if (isset($_SESSION['adminPwd'])) {
+
+            if (md5($_SESSION['adminPwd']) == $pwd) {
+
+                $tech = new Tech();
+
+                $tech->setTechName($_POST['nom']);
+                $tech->setTechAdress($_POST['adress']);
+                $tech->setTechPhoneNumber($_POST['tel']);
+
+                $DB = new DataBase();
+                $DB->addRT($tech);
+
+                echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #50A14F; font-size: 18px;' class=\"fa fa-check\" aria-hidden=\"true\"></i> Responsable technique créé</div>";
+                $this->editRT();
+
+            } else {
+                echo "password incorrect";
+                $ctrl = new HomeController();
+                $ctrl->admin();
+            }
+        } else {
+            $ctrl = new HomeController();
+            $ctrl->admin();
+        }
+    }
     function delRTExe() {
         $homeDAO= new HomePageDAO();
         $pwd = $homeDAO->getAdminPwd();
@@ -520,10 +555,26 @@ class AdminController
 
             if (md5($_SESSION['adminPwd']) == $pwd) {
 
-                $DB = new DataBase();
-                $DB->delRT($_GET['Id']);
+                $DAOImmeuble = new ImmeubleDAO();
+                $immeubles = $DAOImmeuble->getImmeubleAll();
 
-                $this->renderSecureAdmin();
+                $DropOK = true;
+
+                foreach ($immeubles as $immeuble) {
+                    if ($immeuble->getTechId() == $_GET['Id']) {
+                        echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #A12E22; font-size: 18px;' class=\"fa fa-times\" aria-hidden=\"true\"></i> Impossible de supprimer un responsable technique si il est encore associé à un immeuble</div>";
+                        $this->editRT();
+                        $DropOK = false;
+                    }
+                }
+                if ($DropOK == true) {
+                    $DB = new DataBase();
+                    $DB->delRT($_GET['Id']);
+                    echo "<div style='background-color: #2c3e50; color: #bdc3c7; width: 100%; height: 30px; padding-top: 10px; text-align: center;'><i style='color: #50A14F; font-size: 18px;' class=\"fa fa-check\" aria-hidden=\"true\"></i> Responsable technique supprimé</div>";
+                    $this->editRT();
+                }
+
+
             } else {
                 echo "password incorrect";
                 $ctrl = new HomeController();

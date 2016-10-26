@@ -42,11 +42,11 @@ class AddRTView
         </header>
         
         
-        <a href='index.php?Controller=Admin&Action=renderSecureAdmin'><i id='backer' class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i></a>
+        <a href='index.php?Controller=Admin&Action=editRT'><i id='backer' class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i></a>
         <div id='wrapper'>
         <section>
             
-             <form action='#' method='post'>
+             <form action='index.php?Controller=Admin&Action=addRTExe' method='post'>
                
                     
                 </span></p>
