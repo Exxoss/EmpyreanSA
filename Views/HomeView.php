@@ -9,7 +9,7 @@
 class HomeView
 {
     function __construct(){
-        
+
     }
 
     function display($tel, $fax, $inf, $mess){
@@ -31,7 +31,7 @@ class HomeView
     <link href=\"font-awesome-4.5.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <script src=\"js/jquery-3.1.1.min.js\"></script>
     <script src=\"js/toogle.js\"></script>
-    
+
 </head>
 <body>
     <header>
@@ -43,12 +43,12 @@ class HomeView
                     <option value='renderFribourg'>Fribourg</option>
                     <option value='renderVaud'>Vaud</option>
                 </select>
-                
+
             </span>
-            
+
             <input style='outline: none;' id='Button' type='submit' value='GO'/>
         </form>
-        
+
     </header>
     <nav>
         <ul>
@@ -60,9 +60,9 @@ class HomeView
             </div>
         </ul>
     </nav>
-    
+
     <div id='homeInf'>
-    
+
         <!-- telechargement des documents de locations-->
         <article class='blocInf'>
             <h2>Documents</h2>
@@ -72,7 +72,7 @@ class HomeView
                 <a href=\"doc/remise de logement.pdf\" download=\"rl\"><li>Remise de logement <i class=\"fa fa-download\"></i></li></a>
             </ul>
         </article>
-        
+
         <!-- Message d'accueil et infos locataire-->
         <article class='blocInf'>
             <h2>Bienvenue</h2>
@@ -84,7 +84,7 @@ class HomeView
             echo $inf;
             echo "</p>
         </article>
-        
+
         <!-- slider d'image d'apparte-->
         <article class='blocInf'>
             <h2>A louer</h2>
@@ -111,9 +111,9 @@ class HomeView
             </script>
         </article>
     </div>
-    
+
     <div id='footer'>
-    
+
         <!-- coordonnées -->
         <article class='blocFooter'>
             <h2>Nos Coordonnées</h2>
@@ -125,15 +125,15 @@ class HomeView
             echo $fax;
             echo "</p>
         </article>
-        
+
         <!-- liens sociaux -->
         <article class='blocFooter'>
             <h2>Suivez-nous</h2>
             <a href='https://www.facebook.com/Empyrean-SA-697203737084497'><i class=\"fa fa-facebook-square\"></i></a>
         </article>
-        
+
     </div>
-    
+
     <div id='copyright'>
         <p>Copyright &copy; Empyrean SA 2016</p>
     </div>
