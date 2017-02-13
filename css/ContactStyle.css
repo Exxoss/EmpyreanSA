@@ -278,7 +278,7 @@ nav ul a li:hover {
 #footer {
     width: 100%;
     text-align: center;
-    background-image:linear-gradient(#bdc3c7, #a4aaae);
+    background-color: rgb(240,240,240);
     color: #2c3e50;
 }
 #footer .blocFooter {

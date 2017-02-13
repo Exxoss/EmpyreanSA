@@ -1,4 +1,4 @@
-localhost<?php
+<?php
 
 /**
  * Created by PhpStorm.
@@ -29,7 +29,7 @@ class DataBase
         }
 
 
-        
+
         $result = $base->query($query);
 
         return $result;
@@ -186,7 +186,7 @@ class DataBase
 
         $stmt->execute();
 
-        
+
 
 
     }

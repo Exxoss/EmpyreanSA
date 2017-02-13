@@ -111,7 +111,7 @@ nav ul a li:hover {
     }
     #wrapper {
         width: 100%;
-        background-image: linear-gradient(#e3e7e8, #c5c9ca);
+        background-color: #e3e7e8;
         text-align: center;
     }
 
@@ -172,7 +172,7 @@ nav ul a li:hover {
     #wrapper {
         width: 100%;
         padding-top: 100px;
-        background-image: linear-gradient(#e3e7e8, #c5c9ca);
+        background-color: #e3e7e8;
         text-align: center;
     }
 
@@ -288,7 +288,7 @@ nav ul a li:hover {
 #footer {
     width: 100%;
     text-align: center;
-    background-image:linear-gradient(#bdc3c7, #a4aaae);
+    background-color: rgb(240,240,240);
     color: #2c3e50;
 }
 #footer .blocFooter {
