@@ -16,22 +16,22 @@ class EditImmeubleView
     function display($immeuble, $techs) {
         echo "<html lang='en'>
     <head>
-     
+
     <meta charset=\"UTF-8\">
     <meta name=\"author\" content=\"Arthur Quemard\">
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
 
     <title>Empyrean SA</title>
-    
+
     <script src=\"js/jquery.js\"></script>
     <script src=\"js/viewer.js\"></script>
-    
+
     <link rel=\"icon\" type=\"image/png\" href=\"img/icon.png\" />
     <link href=\"css/EditImmeubleStyle.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"css/SelectorCSS.css\" rel=\"stylesheet\" type=\"text/css\"/>
     <link href=\"font-awesome-4.5.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\"/>
-    
+
     </head>
     <body>
         <header>
@@ -39,15 +39,15 @@ class EditImmeubleView
             <h1 class='headBloc'>Empyrean SA</h1>
             <div class='headBloc' id='admin'>admin</div>
         </header>
-        
-        
+
+
         <a href='index.php?Controller=Admin&Action=renderSecureAdmin'><i id='backer' class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i></a>
         <div id='wrapper'>
         <section>
-            
-            
+
+
             <form action='index.php?Controller=Admin&Action=editImmeubleExe' method='post' enctype='multipart/form-data'>
-            
+
                 <input type='hidden' name='Id' value='".$immeuble->getImmeubleId()."'>";
 
                 if ($immeuble->getImmeublePathImg() != null) {
@@ -57,7 +57,7 @@ class EditImmeubleView
                 }
 
                 echo "<p><input type='file' name='img' id='img' onchange='loadFile(event)'></p>
-                <p>Secteur :  
+                <p>Secteur :
                 <span class=\"custom-dropdown custom-dropdown--white\">
                     <select name='city' class=\"custom-dropdown__select custom-dropdown__select--white\">";
 
@@ -70,7 +70,7 @@ class EditImmeubleView
                         }
 
                     echo"</select>
-                    
+
                 </span></p>
                 <p style='margin-bottom: 0px;'>Adresse</p>
                 <p style='margin-top: 3px;'><input type='text' name='adress' id='adress' value='".$immeuble->getImmeubleAdress()."'></p>
@@ -78,19 +78,17 @@ class EditImmeubleView
                 <p style='margin-top: 3px;'><textarea name='mess' id='mess' rows='4'>".$immeuble->getImmeubleDescription()."</textarea></p>
                 <p>Appartements libres : <span class=\"custom-dropdown custom-dropdown--white\">
                     <select name='freeSlot' class=\"custom-dropdown__select custom-dropdown__select--white\">";
-                        $i = 0;
-                        while ($i <= 10) {
-                            if ($i == $immeuble->getImmeubleFreeSlot()) {
-                                echo "<option value='".$i."' selected>".$i."</option>";
+                            if ($immeuble->getImmeubleFreeSlot()<= 0) {
+                                echo "<option value='0' selected>LIBRE</option>
+                                      <option value='1'>LOUÈ</option>";
                             } else {
-                                echo "<option value='".$i."'>".$i."</option>";
+                                echo "<option value='0'>LIBRE</option>
+                                      <option value='1' selected>LOUÈ</option>";
                             }
-                            $i = $i + 1;
-                        }
                     echo "</select>
-                    
+
                 </span></p>
-                
+
                 <p style='color: #ab4939;'><span class=\"custom-dropdown custom-dropdown--white\">
                     <select name='lvl' class=\"custom-dropdown__select custom-dropdown__select--white\">";
                         $i = 0;
@@ -103,7 +101,7 @@ class EditImmeubleView
                             $i = $i + 1;
                         }
                     echo "</select>
-                    
+
                 </span> &nbsp; <i class=\"fa fa-star\" aria-hidden=\"true\"></i></p>
                 <h3>Responsable technique</h3>
                 <p style='margin-top: 3px;'><span class=\"custom-dropdown custom-dropdown--white\">
@@ -116,12 +114,12 @@ class EditImmeubleView
                             }
                         }
                     echo "</select>
-                    
+
                 </span> <a href='index.php?Controller=Admin&Action=editRTSelected&Id=".$immeuble->getTechId()."' style='color: #ecf0f1;'><i class=\"fa fa-cog buttonM\" aria-hidden=\"true\"></i></a></p>
-                
+
                 <p><input type='submit' value='Enregistrer' id='sub'></p>
             </form>
-        
+
         </section>
         </div>
     </body>

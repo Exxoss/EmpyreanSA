@@ -40,7 +40,7 @@ class AppartementsView
             </div>
         </ul>
     </nav>
-    
+
     <div id='wrapper'>
         <!-- Docs Filtre-->
         <div class='blocWrapper'>
@@ -58,9 +58,9 @@ class AppartementsView
                                 <option value='renderVaud'>Vaud</option>";
                             }
                         echo "</select>
-                        
+
                     </span>
-                    
+
                     <input style='outline: none;' id='Button' type='submit' value='GO'/>
                 </form>
                 <h2>Documents</h2>
@@ -71,7 +71,7 @@ class AppartementsView
                 </ul>
             </div>
         </div>
-    
+
         <!-- Apparts-->
         <div class='blocWrapper'>";
         foreach ($Immeubles as $Immeuble) {
@@ -87,7 +87,13 @@ class AppartementsView
             <div class='blocApparts insideBlocDesc'>";
             echo "<h2>" . $Immeuble->getImmeubleAdress() . "</h2>";
             echo "<p>" . $Immeuble->getImmeubleDescription() . "</p>";
-            echo "<h5> Appartement libres : " . $Immeuble->getImmeubleFreeSlot() . "</h5>";
+            echo "<h5> Disponnibilité : ";
+            if ($Immeuble->getImmeubleFreeSlot() >= 1) {
+              echo "LOUÉ";
+            } else {
+              echo "LIBRE";
+            }
+            echo "</h5>";
 
             //gestion des notations
             switch ($Immeuble->getImmeubleLvl()) {
@@ -139,12 +145,12 @@ class AppartementsView
 
         }
         echo"</div>
-        
-        
+
+
     </div>
-    
+
     <div id='footer'>
-    
+
         <!-- coordonnées -->
         <article class='blocFooter'>
             <h2>Nos Coordonnées</h2>
@@ -156,15 +162,15 @@ class AppartementsView
             echo $fax;
             echo "</p>
         </article>
-        
+
         <!-- liens sociaux -->
         <article class='blocFooter'>
             <h2>Suivez-nous</h2>
             <a href='https://www.facebook.com/Empyrean-SA-697203737084497'><i class=\"fa fa-facebook-square\"></i></a>
         </article>
-        
+
     </div>
-    
+
     <div id='copyright'>
         <p>Copyright &copy; Empyrean SA 2016</p>
     </div>
