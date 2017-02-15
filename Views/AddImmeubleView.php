@@ -63,7 +63,7 @@ class AddImmeubleView
                 <p style='margin-top: 3px;'><input type='text' name='adress' id='adress' value='' ></p>
                 <p style='margin-bottom: 0px;'>Description</p>
                 <p style='margin-top: 3px;'><textarea name='mess' id='mess' rows='4' ></textarea></p>
-                <p>Appartements libres : <span class=\"custom-dropdown custom-dropdown--white\">
+                <p>Disponibilité : <span class=\"custom-dropdown custom-dropdown--white\">
                     <select name='freeSlot' class=\"custom-dropdown__select custom-dropdown__select--white\">
                       <option value='0' selected>LIBRE</option>
                       <option value='1'>LOUÉ</option>

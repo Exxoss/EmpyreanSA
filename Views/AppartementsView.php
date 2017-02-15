@@ -87,7 +87,7 @@ class AppartementsView
             <div class='blocApparts insideBlocDesc'>";
             echo "<h2>" . $Immeuble->getImmeubleAdress() . "</h2>";
             echo "<p>" . $Immeuble->getImmeubleDescription() . "</p>";
-            echo "<h5> Disponnibilité : ";
+            echo "<h5> Disponibilité : ";
             if ($Immeuble->getImmeubleFreeSlot() >= 1) {
               echo "LOUÉ";
             } else {

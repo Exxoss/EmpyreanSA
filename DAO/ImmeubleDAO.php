@@ -17,14 +17,14 @@ class ImmeubleDAO
         $DB = new DataBase();
         $Immeubles = array();
 
-        $query = "SELECT * FROM Immeuble WHERE ImmeubleCity=1";
+        $query = "SELECT * FROM Immeuble WHERE ImmeubleCity=1 ORDER BY ImmeubleFreeSlot ASC";
 
         $DBResult = $DB->DBrunner($query);
 
         while ($row = $DBResult->fetch()) {
 
             $Immeuble = new Immeuble();
-            
+
             $Immeuble->setImmeubleId($row["ImmeubleId"]);
             $Immeuble->setImmeubleCity($row["ImmeubleCity"]);
             $Immeuble->setImmeubleAdress($row["ImmeubleAdress"]);
@@ -45,7 +45,7 @@ class ImmeubleDAO
         $DB = new DataBase();
         $Immeubles = array();
 
-        $query = "SELECT * FROM Immeuble WHERE ImmeubleCity=2";
+        $query = "SELECT * FROM Immeuble WHERE ImmeubleCity=2 ORDER BY ImmeubleFreeSlot ASC";
 
         $DBResult = $DB->DBrunner($query);
 
@@ -72,7 +72,7 @@ class ImmeubleDAO
         $DB = new DataBase();
         $Immeubles = array();
 
-        $query = "SELECT * FROM Immeuble";
+        $query = "SELECT * FROM Immeuble ORDER BY ImmeubleFreeSlot ASC";
 
         $DBResult = $DB->DBrunner($query);
 
@@ -120,5 +120,5 @@ class ImmeubleDAO
 
         return $Immeuble;
     }
-    
+
 }
