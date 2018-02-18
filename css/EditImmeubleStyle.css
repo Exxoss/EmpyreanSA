@@ -7,7 +7,7 @@ body {
 /*------------------------------ header --------------------------------*/
 header {
     width: 100%;
-    background-image:linear-gradient(#e74c3c, #c14b3b);
+    background-color: #c14b3b;
     color: #f0f0f0;
     height: 60px;
 

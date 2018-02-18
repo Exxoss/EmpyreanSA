@@ -77,11 +77,11 @@ class ContactView
         <!-- coordonnées -->
         <article class='blocFooter'>
             <h2>Nos Coordonnées</h2>
-            <p><i class=\"fa fa - phone\"></i> &nbsp; Tel : ";
+            <p><i class=\"fa fa-phone\"></i> &nbsp; Tel : ";
             echo $tel;
             echo "</p>
 
-            <p><i class=\"fa fa - fax\"></i> &nbsp; Fax : ";
+            <p><i class=\"fa fa-fax\"></i> &nbsp; Fax : ";
             echo $fax;
             echo "</p>
         </article>
