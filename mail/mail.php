@@ -5,7 +5,7 @@
  * Date: 29/02/2016
  * Time: 18:11
  */
-$mail = "gerance@empyreansa.ch";//email destinataire
+$mail = "gerance@empyreansaangency.com";//email destinataire
 $subject = "Web mailing";
 $message = "Nom : ".htmlspecialchars($_POST['nom'])."\n"."Prenom : ".htmlspecialchars($_POST['prenom'])."\n\n";
 $message .= "e-mail : ".htmlspecialchars($_POST['email'])."\n"."Tel : ".htmlspecialchars($_POST['tel'])."\n\n";
